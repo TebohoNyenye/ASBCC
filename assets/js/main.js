@@ -102,11 +102,11 @@
 
         
     var array;
-    var url = "var url = "assets/js/getsubmissions.php";";
+    var url = "assets/js/getsubmissions.php";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
     
-    //xhr.setRequestHeader("Authorization", "Bearer 00356ef249a28bba53ce7d0992787fd1e12373ff");
+   // xhr.setRequestHeader("Authorization", "Bearer 00356ef249a28bba53ce7d0992787fd1e12373ff");
     //xhr.setRequestHeader("Access-Control-Allow-Origin", "http://localhost/");
   
    
