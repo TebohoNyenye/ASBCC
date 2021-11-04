@@ -104,11 +104,13 @@ const EXCEL_EXTENSION = '.xlsx';
         var e = window.innerWidth;
         e < 768 && (console.log("widthnya ", e),
         document.getElementById("sidebar").classList.remove("active"))
-        reports();
+        //reports();
         getsub();
         getschool();
         getmicro();
         getinfant();
+        getcash();
+        getobesity();
        
         
    
@@ -151,10 +153,43 @@ function getsub() {
    
 }
 
-function getData() {
+function getschool(){
+    var array;
+    var url = "assets/js/getschool.php";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+          console.log(xhr.status);
+          
+		 try {
+            var data= JSON.parse(xhr.responseText);
+            var arr = Object.values(data);
+            console.log(arr);
+           
+           var numb = arr.length;
+           myarray = numb;
+           var dn = document.getElementById('se').innerHTML=myarray+"(s)";
+           console.log(myarray); 
+         } catch (error) {
+
+            var table = document.getElementById('sub2');
+
+            for(var i=0;i<arr.length;i++){
+ 
+            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
+            
+            table.innerHTML += row;
+            }
+             
+         }  
+          
+         
+          
+       }};
+    xhr.send();
     
 }
-
 
 function getschool(){
     var array;
@@ -220,6 +255,93 @@ function getmicro(){
          } catch (error) {
 
             var table = document.getElementById('sub3');
+
+            for(var i=0;i<arr.length;i++){
+ 
+            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
+            
+            table.innerHTML += row;
+            }
+             
+         }  
+          
+         
+          
+       }};
+    xhr.send();
+    
+}
+function getcash(){
+
+
+    var array;
+    var url = "assets/js/getcash.php";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    
+
+  
+   
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+          console.log(xhr.status);
+          
+		 try {
+            var data= JSON.parse(xhr.responseText);
+            var arr = Object.values(data);
+            console.log(arr);
+           
+           var numb = arr.length;
+           myarray = numb;
+           var dn = document.getElementById('metad').innerHTML=myarray+"(s)";
+           console.log(myarray); 
+         } catch (error) {
+
+            var table = document.getElementById('sub1');
+
+            for(var i=0;i<arr.length;i++){
+ 
+            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
+            
+            table.innerHTML += row;
+            }
+             
+         }  
+          
+         
+          
+       }};
+    xhr.send();
+    
+}
+
+function getobesity(){
+
+
+    var array;
+    var url = "assets/js/getobesity.php";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    
+
+  
+   
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+          console.log(xhr.status);
+          
+		 try {
+            var data= JSON.parse(xhr.responseText);
+            var arr = Object.values(data);
+            console.log(arr);
+           
+           var numb = arr.length;
+           myarray = numb;
+           var dn = document.getElementById('met').innerHTML=myarray+"(s)";
+           console.log(myarray); 
+         } catch (error) {
+
+            var table = document.getElementById('sub5');
 
             for(var i=0;i<arr.length;i++){
  
@@ -350,35 +472,47 @@ function download1() {
 }
 function download2() {
     $.ajax({
-        url: "assets/js/getstunting.php",
+        url: "assets/js/getmicro.php",
         contentType: "application/json",
         dataType: 'json',
         success: function(result){
             console.log(result);
-            downloadAsExcel(result);
+            downloadAsExcel2(result);
         }
     })
 }
 function download3() {
     $.ajax({
-        url: "assets/js/getstunting.php",
+        url: "assets/js/getschool.php",
         contentType: "application/json",
         dataType: 'json',
         success: function(result){
             console.log(result);
-            downloadAsExcel(result);
+            downloadAsExcel3(result);
         }
     })
 }
 
 function download4() {
     $.ajax({
-        url: "assets/js/getstunting.php",
+        url: "assets/js/getobesity.php",
         contentType: "application/json",
         dataType: 'json',
         success: function(result){
             console.log(result);
-            downloadAsExcel(result);
+            downloadAsExcel4(result);
+        }
+    })
+}
+
+function download5() {
+    $.ajax({
+        url: "assets/js/getcash.php",
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+            console.log(result);
+            downloadAsExcel5(result);
         }
     })
 }
@@ -451,7 +585,7 @@ function downloadAsExcel2(data) {
 	};
     const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
     console.log(excelBuffer);	
-    SaveExcel(excelBuffer,'stunting');
+    SaveExcel(excelBuffer,'micronutrient');
 }
 
 function downloadAsExcel3(data) {
@@ -467,7 +601,7 @@ function downloadAsExcel3(data) {
 	};
     const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
     console.log(excelBuffer);	
-    SaveExcel(excelBuffer,'stunting');
+    SaveExcel(excelBuffer,'School-feeding');
 }
 
 function downloadAsExcel4(data) {
@@ -483,7 +617,24 @@ function downloadAsExcel4(data) {
 	};
     const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
     console.log(excelBuffer);	
-    SaveExcel(excelBuffer,'stunting');
+    SaveExcel(excelBuffer,'Cash-Based');
+}
+
+
+function downloadAsExcel5(data) {
+ 
+	const worksheet = XLSX.utils.json_to_sheet(data);
+	const workbook ={
+		Sheets:{ 
+      'data':worksheet
+
+        },
+		SheetNames:['data']
+		
+	};
+    const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
+    console.log(excelBuffer);	
+    SaveExcel(excelBuffer,'cash-based');
 }
 
 function SaveExcel(buffer,filename){
