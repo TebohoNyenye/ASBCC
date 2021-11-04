@@ -617,7 +617,7 @@ function downloadAsExcel4(data) {
 	};
     const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
     console.log(excelBuffer);	
-    SaveExcel(excelBuffer,'Cash-Based');
+    SaveExcel(excelBuffer,'Obesity');
 }
 
 
