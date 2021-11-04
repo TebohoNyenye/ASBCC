@@ -13,13 +13,13 @@ var chartColors = {
 var config1 = {
   type: "line",
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["Maseru", "Butha-Buthe", "Berea", "Leribe", "Mokhotlong", "Thaba-Tseka", "Mafeteng","Quthing","Mohale's Hoek","Qacha's Nek"],
     datasets: [
       {
-        label: "Balance",
+        label: "Submissions",
         backgroundColor: "#fff",
         borderColor: "#fff",
-        data: [20, 40, 20, 70, 10, 50, 20],
+        data: [20, 40, 20, 70, 10, 50, 20, 0, 0, 5],
         fill: false,
         pointBorderWidth: 100,
         pointBorderColor: "transparent",
@@ -216,6 +216,76 @@ var config3 = {
   },
 };
 var config4 = {
+  type: "line",
+  data: {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: "#fff",
+        borderColor: "#fff",
+        data: [20, 40, 20, 70, 10, 5, 23],
+        fill: false,
+        pointBorderWidth: 100,
+        pointBorderColor: "transparent",
+        pointRadius: 3,
+        pointBackgroundColor: "transparent",
+        pointHoverBackgroundColor: "rgba(63,82,227,1)",
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false, 
+    layout: {
+      padding: {
+        left: -10,
+        top: 10,
+      },
+    },
+    legend: {
+      display: false,
+    },
+    title: {
+      display: false,
+      text: "Chart.js Line Chart",
+    },
+    tooltips: {
+      mode: "index",
+      intersect: false,
+    },
+    hover: {
+      mode: "nearest",
+      intersect: true,
+    },
+    scales: {
+      xAxes: [
+        {
+          gridLines: {
+            drawBorder: false,
+            display: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
+      ],
+    },
+  },
+};
+
+var config5 = {
   type: "line",
   data: {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -489,7 +559,9 @@ let ctx1 = document.getElementById("canvas1").getContext("2d");
 let ctx2 = document.getElementById("canvas2").getContext("2d");
 let ctx3 = document.getElementById("canvas3").getContext("2d");
 let ctx4 = document.getElementById("canvas4").getContext("2d");
+let ctx5 = document.getElementById("canvas5").getContext("2d");
 var lineChart1 = new Chart(ctx1, config1);
 var lineChart2 = new Chart(ctx2, config2);
 var lineChart3 = new Chart(ctx3, config3);
 var lineChart4 = new Chart(ctx4, config4);
+var lineChart5 = new Chart(ctx5, config5);

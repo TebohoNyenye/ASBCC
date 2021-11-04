@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="jquery-3.4.1.min.js"></script>
+<script>
+$(document).ready(function(){
+$("button").click(function(e){
+e.preventDefault();
+var ip_address=$("#ip_address").val();
+
+$.ajax({
+type: "GET",
+url: "http://api.ipinfodb.com/v3/ip-city",
+data: {
+key:"9d64fcfdfacc213c7ddf4ef911dfe97b55e4696be3532bf832876c09bad06b",
+ip:ip_address,
+format:"json"
+},
+dataType: "jsonp",
+jsonpCallback: "jsonp_callback",
+crossDomain: true,
+success: function(result) {
+alert(result);
+},
+error: function(result) {
+alert('error');
+}
+});
+});
+});
+
+function jsonp_callback(json){
+alert(json.cityName);
+}
+
+</script>
+</head>
+<body>
+<center>
+<h1>Jquery Get Request Test</h1>
+<form>
+IP Address : <input type="text" id="ip_address"/><br>
+<button>Submit</button>
+</for>
+</center>
+</body>
+</html>

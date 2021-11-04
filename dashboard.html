@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active">
                 <div class="sidebar-header">
-                   ASBCC
+                    <img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/> ASBCC
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
@@ -91,7 +91,7 @@
 
 
                         <li class="sidebar-item ">
-                            <a href="#" class='sidebar-link'>
+                            <a href="reports.html" class='sidebar-link'>
                                 <i data-feather="file-text" width="20"></i>
                                 <span>Reports</span>
                             </a>
@@ -202,9 +202,9 @@
                                 <div class="card-body p-0">
                                     <div class="d-flex flex-column">
                                         <div class='px-3 py-3 d-flex justify-content-between'>
-                                            <h3 class='card-title'>School feeding</h3>
+                                            <h3 class='card-title'>S-feeding</h3>
                                             <div class="card-right d-flex align-items-center">
-                                                <p>0(s) </p>
+                                                <p id="se">0(s) </p>
                                             </div>
                                         </div>
                                         <div class="chart-wrapper">
@@ -221,7 +221,7 @@
                                         <div class='px-3 py-3 d-flex justify-content-between'>
                                             <h3 class='card-title'>Infant</h3>
                                             <div class="card-right d-flex align-items-center">
-                                                <p>0(s)</p>
+                                                <p id="inf">0(s)</p>
                                             </div>
                                         </div>
                                         <div class="chart-wrapper">
@@ -236,13 +236,93 @@
                                 <div class="card-body p-0">
                                     <div class="d-flex flex-column">
                                         <div class='px-3 py-3 d-flex justify-content-between'>
-                                            <h3 class='card-title'>Micronutrient</h3>
+                                            <h3 class='card-title'>Micronutri</h3>
                                             <div class="card-right d-flex align-items-center">
-                                                <p>0(s)</p>
+                                                
+												<p id="me">0(s)</p>
                                             </div>
                                         </div>
                                         <div class="chart-wrapper">
                                             <canvas id="canvas4" style="height:100px !important"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3">
+                            <div class="card card-statistic">
+                                <div class="card-body p-0">
+                                    <div class="d-flex flex-column">
+                                        <div class='px-3 py-3 d-flex justify-content-between'>
+                                            <h3 class='card-title'>Obesity</h3>
+                                            <div class="card-right d-flex align-items-center">
+                                                
+												<p id="me">0(s)</p>
+                                            </div>
+                                        </div>
+                                        <div class="chart-wrapper">
+                                            <canvas id="canvas5" style="height:100px !important"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-12 col-md-3">
+                            <div class="card card-statistic">
+                                <div class="card-body p-0">
+                                    <div class="d-flex flex-column">
+                                        <div class='px-3 py-3 d-flex justify-content-between'>
+                                            <h3 class='card-title'>Cash-Based</h3>
+                                            <div class="card-right d-flex align-items-center">
+                                                
+												<p id="me">0(s)</p>
+                                            </div>
+                                        </div>
+                                        <div class="chart-wrapper">
+                                            <canvas id="canvas6" style="height:100px !important"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-12 col-md-3">
+                            <div class="card card-statistic">
+                                <div class="card-body p-0">
+                                    <div class="d-flex flex-column">
+                                        <div class='px-3 py-3 d-flex justify-content-between'>
+                                            <h3 class='card-title'>Meeting</h3>
+                                            <div class="card-right d-flex align-items-center">
+                                                
+												<p id="me">0(s)</p>
+                                            </div>
+                                        </div>
+                                        <div class="chart-wrapper">
+                                            <canvas id="canvas7" style="height:100px !important"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-12 col-md-3">
+                            <div class="card card-statistic">
+                                <div class="card-body p-0">
+                                    <div class="d-flex flex-column">
+                                        <div class='px-3 py-3 d-flex justify-content-between'>
+                                            <h3 class='card-title'>Total</h3>
+                                            <div class="card-right d-flex align-items-center">
+                                                
+												<p id="me">0(s)</p>
+                                            </div>
+                                        </div>
+                                        <div class="chart-wrapper">
+                                            <canvas id="canvas8" style="height:100px !important"></canvas>
                                         </div>
                                     </div>
                                 </div>
@@ -470,7 +550,7 @@
     <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
     <script src="assets/js/pages/dashboard.js"></script>
  <script src="assets/js/main.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script>
+ <script src="assets/js/jquery-3.4.1.min.js"></script>
 
 </body>
 

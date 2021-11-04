@@ -1,3 +1,8 @@
+const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+const EXCEL_EXTENSION = '.xlsx';
+
+
+
 !function(e) {
     var t = {};
     function r(n) {
@@ -99,17 +104,63 @@
         var e = window.innerWidth;
         e < 768 && (console.log("widthnya ", e),
         document.getElementById("sidebar").classList.remove("active"))
-
+        reports();
+        getsub();
+        getschool();
+        getmicro();
+        getinfant();
+       
         
+   
+    
+    }
+    ,
+    feather.replace()
+}
+
+
+]);
+
+function getsub() {
     var array;
-    var url = "assets/js/getsubmissions.php";
+    var url = "assets/js/getstunting.php";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
-    
-   // xhr.setRequestHeader("Authorization", "Bearer 00356ef249a28bba53ce7d0992787fd1e12373ff");
-    //xhr.setRequestHeader("Access-Control-Allow-Origin", "http://localhost/");
-  
+
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+          console.log(xhr.status);
+		 try {
+            var data= JSON.parse(xhr.responseText);
+            var arr = Object.values(data);
+            console.log(arr);
+            stdata = arr;
+           var numb = arr.length;
+           myarray = numb;
+           var dn = document.getElementById('sabu').innerHTML=myarray+"(s)";
+           console.log(myarray); 
+         } catch (error) {
+            var table = document.getElementById('sub');
+            for(var i=0;i<arr.length;i++){
+            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
+            table.innerHTML += row;
+            }
+         }   
+       }};
+    xhr.send();
    
+}
+
+function getData() {
+    
+}
+
+
+function getschool(){
+    var array;
+    var url = "assets/js/getschool.php";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
     xhr.onreadystatechange = function () {
        if (xhr.readyState === 4) {
           console.log(xhr.status);
@@ -121,11 +172,11 @@
            
            var numb = arr.length;
            myarray = numb;
-           var dn = document.getElementById('sabu').innerHTML=myarray+"(s)";
+           var dn = document.getElementById('se').innerHTML=myarray+"(s)";
            console.log(myarray); 
          } catch (error) {
 
-            var table = document.getElementById('sub');
+            var table = document.getElementById('sub2');
 
             for(var i=0;i<arr.length;i++){
  
@@ -141,10 +192,301 @@
        }};
     xhr.send();
     
-    }
-    ,
-    feather.replace()
+}
+function getmicro(){
+
+
+    var array;
+    var url = "assets/js/getmicro.php";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    
+
+  
+   
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+          console.log(xhr.status);
+          
+		 try {
+            var data= JSON.parse(xhr.responseText);
+            var arr = Object.values(data);
+            console.log(arr);
+           
+           var numb = arr.length;
+           myarray = numb;
+           var dn = document.getElementById('me').innerHTML=myarray+"(s)";
+           console.log(myarray); 
+         } catch (error) {
+
+            var table = document.getElementById('sub3');
+
+            for(var i=0;i<arr.length;i++){
+ 
+            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
+            
+            table.innerHTML += row;
+            }
+             
+         }  
+          
+         
+          
+       }};
+    xhr.send();
+    
 }
 
+function getinfant(){
 
-]);
+
+    var array;
+    var url = "assets/js/getinfant.php";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    
+   
+  
+   
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+          console.log(xhr.status);
+          
+		 try {
+            var data= JSON.parse(xhr.responseText);
+            var arr = Object.values(data);
+            
+           
+           var numb = arr.length;
+           myarray = numb;
+           var dn = document.getElementById('inf').innerHTML=myarray+"(s)";
+           console.log(myarray); 
+         } catch (error) {
+
+            var table = document.getElementById('sub4');
+
+            for(var i=0;i<arr.length;i++){
+ 
+            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
+            
+            table.innerHTML += row;
+            }
+             
+
+         }  
+          
+         
+          
+       }};
+    xhr.send();
+    
+}
+function stuntreport(){
+
+
+    var array;
+    var url = "assets/js/getstuntreports.php";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    
+   
+  
+   
+    xhr.onreadystatechange = function () {
+       if (xhr.readyState === 4) {
+          console.log(xhr.status);
+          
+		 try {
+            var data= JSON.parse(xhr.responseText);
+            var arr = Object.values(data);
+            
+           
+           var numb = arr.length;
+           myarray = numb;
+           //var dn = document.getElementById('inf').innerHTML=myarray+"(s)";
+           console.log(myarray); 
+         } catch (error) {
+
+            var table = document.getElementById('repo');
+
+            for(var i=0;i<arr.length;i++){
+ 
+            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
+            
+            table.innerHTML += row;
+            }
+             
+
+         }  
+          
+         
+          
+       }};
+    xhr.send();
+    
+}
+
+function download() {
+    $.ajax({
+        url: "assets/js/getstunting.php",
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+            console.log(result);
+            downloadAsExcel(result);
+        }
+    })
+}
+function download1() {
+    $.ajax({
+        url: "assets/js/getinfant.php",
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+            console.log(result);
+            downloadAsExcel1(result);
+        }
+    })
+}
+function download2() {
+    $.ajax({
+        url: "assets/js/getstunting.php",
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+            console.log(result);
+            downloadAsExcel(result);
+        }
+    })
+}
+function download3() {
+    $.ajax({
+        url: "assets/js/getstunting.php",
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+            console.log(result);
+            downloadAsExcel(result);
+        }
+    })
+}
+
+function download4() {
+    $.ajax({
+        url: "assets/js/getstunting.php",
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+            console.log(result);
+            downloadAsExcel(result);
+        }
+    })
+}
+
+function reports() {
+    $.ajax({
+        url: "assets/js/getstuntreports.php",
+        contentType: "application/json",
+        dataType: 'json',
+        success: function(result){
+           
+            var arr = Object.values(result);
+           console.log(arr[2][5].data.responses);
+
+           var table = document.getElementById('repo');
+
+           for(var i=0;i<arr.length;i++){
+
+           var row = '<tr>       <td>' +arr[2][5].data.responses+ '</td>  <td>'+arr[2][5].data.frequencies+'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
+           
+           table.innerHTML += row;
+           }
+           $('#repo').append('<tr><td><h6 class="mb-0">'+Arts+'</h6></td><td>'+120+'</td><td>'+180+'</td></tr><tr>');
+        }
+    })
+}
+
+function downloadAsExcel(data) {
+ 
+	const worksheet = XLSX.utils.json_to_sheet(data);
+	const workbook ={
+		Sheets:{ 
+      'data':worksheet
+
+        },
+		SheetNames:['data']
+		
+	};
+    const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
+    console.log(excelBuffer);	
+    SaveExcel(excelBuffer,'stunting');
+}
+
+function downloadAsExcel1(data) {
+ 
+	const worksheet = XLSX.utils.json_to_sheet(data);
+	const workbook ={
+		Sheets:{ 
+      'data':worksheet
+
+        },
+		SheetNames:['data']
+		
+	};
+    const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
+    console.log(excelBuffer);	
+    SaveExcel(excelBuffer,'infant');
+}
+
+function downloadAsExcel2(data) {
+ 
+	const worksheet = XLSX.utils.json_to_sheet(data);
+	const workbook ={
+		Sheets:{ 
+      'data':worksheet
+
+        },
+		SheetNames:['data']
+		
+	};
+    const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
+    console.log(excelBuffer);	
+    SaveExcel(excelBuffer,'stunting');
+}
+
+function downloadAsExcel3(data) {
+ 
+	const worksheet = XLSX.utils.json_to_sheet(data);
+	const workbook ={
+		Sheets:{ 
+      'data':worksheet
+
+        },
+		SheetNames:['data']
+		
+	};
+    const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
+    console.log(excelBuffer);	
+    SaveExcel(excelBuffer,'stunting');
+}
+
+function downloadAsExcel4(data) {
+ 
+	const worksheet = XLSX.utils.json_to_sheet(data);
+	const workbook ={
+		Sheets:{ 
+      'data':worksheet
+
+        },
+		SheetNames:['data']
+		
+	};
+    const excelBuffer=XLSX.write(workbook,{bookType:'xlsx',type:'array'});
+    console.log(excelBuffer);	
+    SaveExcel(excelBuffer,'stunting');
+}
+
+function SaveExcel(buffer,filename){
+    const data = new Blob([buffer],{type:EXCEL_TYPE});
+    saveAs(data,filename+'_export_'+new Date().getTime()+EXCEL_EXTENSION);
+}
