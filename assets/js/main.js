@@ -104,7 +104,7 @@ const EXCEL_EXTENSION = '.xlsx';
         var e = window.innerWidth;
         e < 768 && (console.log("widthnya ", e),
         document.getElementById("sidebar").classList.remove("active"))
-        //reports();
+        reports();
         getsub();
         getschool();
         getmicro();
@@ -454,8 +454,12 @@ function download() {
         contentType: "application/json",
         dataType: 'json',
         success: function(result){
+            var str = "Downloading..";
+            var str2 = "downloaded"; 
             console.log(result);
+            $('.card-header').append('<button class="btn btn-primary" onclick="download()">'+str+'<br></button');
             downloadAsExcel(result);
+            $('.card-header').append('<button class="btn btn-primary" onclick="download()">'+str2+'<br></button');
         }
     })
 }
@@ -517,28 +521,7 @@ function download5() {
     })
 }
 
-function reports() {
-    $.ajax({
-        url: "assets/js/getstuntreports.php",
-        contentType: "application/json",
-        dataType: 'json',
-        success: function(result){
-           
-            var arr = Object.values(result);
-           console.log(arr[2][5].data.responses);
 
-           var table = document.getElementById('repo');
-
-           for(var i=0;i<arr.length;i++){
-
-           var row = '<tr>       <td>' +arr[2][5].data.responses+ '</td>  <td>'+arr[2][5].data.frequencies+'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
-           
-           table.innerHTML += row;
-           }
-           $('#repo').append('<tr><td><h6 class="mb-0">'+Arts+'</h6></td><td>'+120+'</td><td>'+180+'</td></tr><tr>');
-        }
-    })
-}
 
 function downloadAsExcel(data) {
  

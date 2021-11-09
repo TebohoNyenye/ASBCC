@@ -1,4 +1,37 @@
+const xlabels=[];
+const ylabels=[];
 
+ function reports() {
+  $.ajax({
+      url: "assets/js/getstuntreports.php",
+      contentType: "application/json",
+      dataType: 'json',
+      async: 'false',
+      success: function(result){
+         console.log(result);
+          var arr = Object.values(result);
+        // console.log(arr[2][3].data.responses);
+         console.log(arr[2][3].data.percentages);
+         
+
+         var districts= [];
+         var percentage = [];
+         
+         for(var i=0;i<arr.length;i++){
+         // const columns = row.split(',');
+         districts= arr[2][3].data.responses[i];
+         percentage = arr[2][3].data.percentages[i];
+         console.log(districts);
+          xlabels.push(districts);
+          
+          ylabels.push(percentage);
+         }
+        
+
+         
+      }
+  })
+}
 var chartColors = {
   red: 'rgb(255, 99, 132)',
   orange: 'rgb(255, 159, 64)',
@@ -11,15 +44,16 @@ var chartColors = {
 };
 
 var config1 = {
+
   type: "line",
   data: {
-    labels: ["Maseru", "Butha-Buthe", "Berea", "Leribe", "Mokhotlong", "Thaba-Tseka", "Mafeteng","Quthing","Mohale's Hoek","Qacha's Nek"],
+    labels:xlabels,
     datasets: [
       {
-        label: "Submissions",
+        label: "Percentage",
         backgroundColor: "#fff",
         borderColor: "#fff",
-        data: [20, 40, 20, 70, 10, 50, 20, 0, 0, 5],
+        data: ["34","67","56"],
         fill: false,
         pointBorderWidth: 100,
         pointBorderColor: "transparent",
