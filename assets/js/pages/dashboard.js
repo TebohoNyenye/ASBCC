@@ -16,14 +16,17 @@ const ylabels=[];
 
          var districts= [];
          var percentage = [];
+         var frequencies =[];
          
          for(var i=0;i<arr.length;i++){
          // const columns = row.split(',');
          districts= arr[2][3].data.responses[i];
          percentage = arr[2][3].data.percentages[i];
+         frequencies = arr[2][3].data.frequencies[i];
+         
+         $('#repo1').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
          console.log(districts);
           xlabels.push(districts);
-          
           ylabels.push(percentage);
          }
         

@@ -253,16 +253,8 @@
                                               
                                             </tr>
                                         </thead>
-                                        <tbody id="repo">
-                                            <tr>
-                                                <td>
-                                                    <h6 class="mb-0">Maseru</h6> 
-                                                </td>
-                                                <td>2</td>
-                                                <td>40.14</td>
-                                                
-                                            </tr>
-                                            <tr>
+                                        <tbody id="repo1">
+                                         
                                               
                                            
                                         </tbody>
@@ -817,7 +809,38 @@
     <script src="assets/js/pdf.js"></script>
 
     <script>
-    
+      $.ajax({
+      url: "assets/js/getstuntreports.php",
+      contentType: "application/json",
+      dataType: 'json',
+      async: 'false',
+      success: function(result){
+         console.log(result);
+          var arr = Object.values(result);
+         console.log(arr[2][3].data.responses);
+         console.log(arr[2][3].data.percentages);
+         console.log(arr.length);
+
+         var districts= [];
+         var percentage = [];
+         var frequencies =[];
+         
+         for(var i=0;i<arr.length;i++){
+         // const columns = row.split(',');
+         districts= arr[2][3].data.responses[i];
+         percentage = arr[2][3].data.percentages[i];
+         frequencies = arr[2][3].data.frequencies[i];
+         
+         $('#repo1').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
+         console.log(districts);
+          xlabels.push(districts);
+          ylabels.push(percentage);
+         }
+        
+
+         
+      }
+  })
     
     </script>
     
