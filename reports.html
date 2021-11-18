@@ -197,7 +197,7 @@
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row text-center">
                       <div class="col-md-4">
                         
                         <button class="btn btn-primary" id="Rbutton" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="#multiCollapseExample1"><i data-feather="file-text" width="60"></i><br>Stunting</button>
@@ -313,11 +313,11 @@
                             
                             <div class="card-header">
                                 Reports about the data<br>
-                                <button class="btn btn-primary" id="download">download Pdf</button>
+                                <button class="btn btn-primary" id="download2">download Pdf</button>
                             </div>
                             <div class="card-body">
                                 <div class="col-md-12">
-                                <div class="card" id="invoice">
+                                <div class="card" id="invoice2">
                                     <div class="card-header bg-transparent header-elements-inline">
                                         <h6 class="card-title text-primary text-center">Infant and young child feeding Report
                                             <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
@@ -407,11 +407,11 @@
                                 
                                 <div class="card-header">
                                     Reports about the data<br>
-                                    <button class="btn btn-primary" id="download">download Pdf</button>
+                                    <button class="btn btn-primary" id="download3">download Pdf</button>
                                 </div>
                                 <div class="card-body">
                                     <div class="col-md-12">
-                                    <div class="card" id="invoice">
+                                    <div class="card" id="invoice3">
                                         <div class="card-header bg-transparent header-elements-inline">
                                             <h6 class="card-title text-primary text-center">Micronutrient Defeciencies Report
                                                 <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
@@ -501,11 +501,11 @@
                                     
                                     <div class="card-header">
                                         Reports about the data<br>
-                                        <button class="btn btn-primary" id="download">download Pdf</button>
+                                        <button class="btn btn-primary" id="download4">download Pdf</button>
                                     </div>
                                     <div class="card-body">
                                         <div class="col-md-12">
-                                        <div class="card" id="invoice">
+                                        <div class="card" id="invoice4">
                                             <div class="card-header bg-transparent header-elements-inline">
                                                 <h6 class="card-title text-primary text-center">School Feeding Report
                                                     <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
@@ -595,11 +595,11 @@
                                         
                                         <div class="card-header">
                                             Reports about the data<br>
-                                            <button class="btn btn-primary" id="download">download Pdf</button>
+                                            <button class="btn btn-primary" id="download5">download Pdf</button>
                                         </div>
                                         <div class="card-body">
                                             <div class="col-md-12">
-                                            <div class="card" id="invoice">
+                                            <div class="card" id="invoice5">
                                                 <div class="card-header bg-transparent header-elements-inline">
                                                     <h6 class="card-title text-primary text-center">OverWeight & Obesity Report
                                                         <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
@@ -689,11 +689,11 @@
                                             
                                             <div class="card-header">
                                                 Reports about the data<br>
-                                                <button class="btn btn-primary" id="download">download Pdf</button>
+                                                <button class="btn btn-primary" id="download6">download Pdf</button>
                                             </div>
                                             <div class="card-body">
                                                 <div class="col-md-12">
-                                                <div class="card" id="invoice">
+                                                <div class="card" id="invoice6">
                                                     <div class="card-header bg-transparent header-elements-inline">
                                                         <h6 class="card-title text-primary text-center">Cashed Based Transfer Report
                                                             <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
@@ -786,7 +786,7 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">Tech4All</a></p>
+                                href="https://techforall.co.ls/">Tech4All</a></p>
                     </div>
                 </div>
             </footer>
@@ -802,7 +802,7 @@
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <!--<script src="assets/js/pages/dashboard.js"></script>-->
     <script src="assets/vendors/chartjs/Chart.min.js"></script>
     <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
     <script src="assets/js/main.js"></script>
@@ -817,24 +817,25 @@
       success: function(result){
          console.log(result);
           var arr = Object.values(result);
+          console.log(arr);
          console.log(arr[2][3].data.responses);
          console.log(arr[2][3].data.percentages);
-         console.log(arr.length);
+         //console.log(arr[2][3].length);
+         //var are=arr.length ;
 
          var districts= [];
          var percentage = [];
          var frequencies =[];
          
          for(var i=0;i<arr.length;i++){
-         // const columns = row.split(',');
-         districts= arr[2][3].data.responses[i];
+
+            districts= arr[2][3].data.responses[i];
          percentage = arr[2][3].data.percentages[i];
          frequencies = arr[2][3].data.frequencies[i];
-         
          $('#repo1').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
          console.log(districts);
-          xlabels.push(districts);
-          ylabels.push(percentage);
+        
+         
          }
         
 
