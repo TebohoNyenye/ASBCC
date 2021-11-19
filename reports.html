@@ -828,6 +828,7 @@
          var frequencies =[];
          
          for(var i=0;i<arr.length;i++){
+<<<<<<< HEAD
              
 
                 districts= arr[2][3].data.responses[i];
@@ -839,6 +840,15 @@
 
          
         
+=======
+           
+
+         districts= arr[2][3].data.responses[j];
+         percentage = arr[2][3].data.percentages[j];
+         frequencies = arr[2][3].data.frequencies[j];
+         $('#repo1').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
+         console.log(districts);
+>>>>>>> 5bc01b4c66bc94ee2d4be047e6d7ee15f6c7123e
          
          }
         
