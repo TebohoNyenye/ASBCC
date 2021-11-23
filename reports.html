@@ -259,6 +259,8 @@
                                            
                                         </tbody>
                                     </table>
+                           <div class="text-center"><canvas id="myChart" style="width:100%;max-width:600px;"></canvas></div>
+
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table table-lg">
@@ -782,7 +784,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start"><!---->
-                        <p>2020 &copy; Asbcc</p>
+                        <p>2021 &copy; Asbcc</p>
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a
@@ -817,45 +819,59 @@
       success: function(result){
          console.log(result);
           var arr = Object.values(result);
+          
           console.log(arr);
          console.log(arr[2][3].data.responses);
          console.log(arr[2][3].data.percentages);
-         //console.log(arr[2][3].length);
+         //console.log(arr[2][3].responses);
          //var are=arr.length ;
-
+        var d = arr[2][3].data.responses;
+         console.log(d.length);
          var districts= [];
          var percentage = [];
          var frequencies =[];
          
-         for(var i=0;i<arr.length;i++){
-<<<<<<< HEAD
-             
-
-                districts= arr[2][3].data.responses[i];
+         for(var i=0;i<d.length;i++){
+         districts= arr[2][3].data.responses[i];
          percentage = arr[2][3].data.percentages[i];
          frequencies = arr[2][3].data.frequencies[i];
          $('#repo1').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
-         console.log(districts);
-
-
-         
-        
-=======
+         console.log(districts);    
+         xValues.push(districts);
+         yValues.push(percentage);
            
-
-         districts= arr[2][3].data.responses[j];
-         percentage = arr[2][3].data.percentages[j];
-         frequencies = arr[2][3].data.frequencies[j];
-         $('#repo1').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
-         console.log(districts);
->>>>>>> 5bc01b4c66bc94ee2d4be047e6d7ee15f6c7123e
-         
          }
-        
-
          
       }
+
   })
+
+var xValues = [];
+var yValues = [];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ASBCC District Performance"
+    }
+  }
+});
     
     </script>
     

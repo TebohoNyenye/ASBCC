@@ -104,6 +104,7 @@ const EXCEL_EXTENSION = '.xlsx';
         var e = window.innerWidth;
         e < 768 && (console.log("widthnya ", e),
         document.getElementById("sidebar").classList.remove("active"))
+      
         reports();
         getsub();
         getschool();
@@ -152,6 +153,7 @@ function getsub() {
     xhr.send();
    
 }
+
 
 function getschool(){
     var array;

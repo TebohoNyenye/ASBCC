@@ -8,18 +8,18 @@ const ylabels=[];
       dataType: 'json',
       async: 'false',
       success: function(result){
-         console.log(result);
-          var arr = Object.values(result);
-        // console.log(arr[2][3].data.responses);
-         console.log(arr[2][3].data.percentages);
-         
 
+         console.log(result);
+         var arr = Object.values(result);
+         console.log(arr[2][3].data.percentages);
+         var d = arr[2][3].data.responses;
+         console.log(d.length);
          var districts= [];
          var percentage = [];
          var frequencies =[];
          
-         for(var i=0;i<arr.length;i++){
-         // const columns = row.split(',');
+         for(var i=0;i<d.length;i++){
+       
          districts= arr[2][3].data.responses[i];
          percentage = arr[2][3].data.percentages[i];
          frequencies = arr[2][3].data.frequencies[i];
@@ -30,11 +30,14 @@ const ylabels=[];
           ylabels.push(percentage);
          }
         
+        // $('#canvas1').show();
+        drawGraphs();
 
          
       }
   })
 }
+
 var chartColors = {
   red: 'rgb(255, 99, 132)',
   orange: 'rgb(255, 159, 64)',
@@ -56,7 +59,7 @@ var config1 = {
         label: "Percentage",
         backgroundColor: "#fff",
         borderColor: "#fff",
-        data: ["34","67","56"],
+        data: ylabels,
         fill: false,
         pointBorderWidth: 100,
         pointBorderColor: "transparent",
@@ -115,6 +118,7 @@ var config1 = {
     },
   },
 };
+
 var config2 = {
   type: "line",
   data: {
@@ -592,13 +596,20 @@ var radialBarsOptions = {
 };
 var radialBars = new ApexCharts(document.querySelector("#radialBars"), radialBarsOptions);
 radialBars.render();
-let ctx1 = document.getElementById("canvas1").getContext("2d");
-let ctx2 = document.getElementById("canvas2").getContext("2d");
-let ctx3 = document.getElementById("canvas3").getContext("2d");
-let ctx4 = document.getElementById("canvas4").getContext("2d");
-let ctx5 = document.getElementById("canvas5").getContext("2d");
-var lineChart1 = new Chart(ctx1, config1);
-var lineChart2 = new Chart(ctx2, config2);
-var lineChart3 = new Chart(ctx3, config3);
-var lineChart4 = new Chart(ctx4, config4);
-var lineChart5 = new Chart(ctx5, config5);
+
+ function drawGraphs(){
+
+  let ctx1 = document.getElementById("canvas1").getContext("2d");
+  let ctx2 = document.getElementById("canvas2").getContext("2d");
+  let ctx3 = document.getElementById("canvas3").getContext("2d");
+  let ctx4 = document.getElementById("canvas4").getContext("2d");
+  let ctx5 = document.getElementById("canvas5").getContext("2d");
+  var lineChart1 = new Chart(ctx1, config1);
+  var lineChart2 = new Chart(ctx2, config2);
+  var lineChart3 = new Chart(ctx3, config3);
+  var lineChart4 = new Chart(ctx4, config4);
+  var lineChart5 = new Chart(ctx5, config5);
+  
+
+ }
+ 
