@@ -106,6 +106,12 @@ const EXCEL_EXTENSION = '.xlsx';
         document.getElementById("sidebar").classList.remove("active"))
       
         reports();
+        schoolReports();
+        obesityReports();
+        Infantreports();
+        MicroReports();
+        Cash_BasedReports() ;
+        
         getsub();
         getschool();
         getmicro();

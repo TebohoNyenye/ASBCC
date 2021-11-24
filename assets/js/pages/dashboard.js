@@ -1,5 +1,26 @@
+// stunting
 const xlabels=[];
 const ylabels=[];
+
+// School
+const xlabels1=[]; 
+const ylabels1=[];
+
+// Infant
+const xlabels2=[];
+const ylabels2=[];
+
+// MicroNutri
+const xlabels3=[];
+const ylabels3=[];
+
+// Obesity
+const xlabels4=[];
+const ylabels4=[];
+
+// Cash-Based
+const xlabels5=[];
+const ylabels5=[];
 
  function reports() {
   $.ajax({
@@ -11,27 +32,200 @@ const ylabels=[];
 
          console.log(result);
          var arr = Object.values(result);
-         console.log(arr[2][3].data.percentages);
          var d = arr[2][3].data.responses;
-         console.log(d.length);
+
          var districts= [];
          var percentage = [];
          var frequencies =[];
-         
+      
          for(var i=0;i<d.length;i++){
        
          districts= arr[2][3].data.responses[i];
          percentage = arr[2][3].data.percentages[i];
          frequencies = arr[2][3].data.frequencies[i];
          
-         $('#repo1').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
-         console.log(districts);
           xlabels.push(districts);
           ylabels.push(percentage);
          }
         
-        // $('#canvas1').show();
+    
         drawGraphs();
+
+         
+      }
+  })
+}
+
+
+function schoolReports() {
+  $.ajax({
+      url: "assets/js/pages/getSchoolReport.php",
+      contentType: "application/json",
+      dataType: 'json',
+      async: 'false',
+      success: function(result){
+
+         console.log(result);
+         var arr = Object.values(result);
+         console.log(arr);
+         var d = arr[2][2].data.percentages;
+         
+         
+
+         var districts= [];
+         var percentage = [];
+         var frequencies =[];
+      
+         for(var i=0;i<d.length;i++){
+       
+         districts= arr[2][2].data.responses[i];
+         percentage = arr[2][2].data.percentages[i];
+         frequencies = arr[2][2].data.frequencies[i];
+         
+          xlabels1.push(districts);
+          ylabels1.push(percentage);
+         }
+        
+    
+        drawGraphs1();
+
+         
+      }
+  })
+}
+
+
+function Infantreports() {
+  $.ajax({
+      url: "assets/js/pages/getInfantReport.php",
+      contentType: "application/json",
+      dataType: 'json',
+      async: 'false',
+      success: function(result){
+
+         console.log(result);
+         var arr = Object.values(result);
+         var d = arr[2][3].data.responses;
+
+         var districts= [];
+         var percentage = [];
+         var frequencies =[];
+      
+         for(var i=0;i<d.length;i++){
+       
+         districts= arr[2][3].data.responses[i];
+         percentage = arr[2][3].data.percentages[i];
+         frequencies = arr[2][3].data.frequencies[i];
+         
+          xlabels2.push(districts);
+          ylabels2.push(percentage);
+         }
+        
+    
+        drawGraphs2();
+
+         
+      }
+  })
+}
+
+function MicroReports() {
+  $.ajax({
+      url: "assets/js/pages/getMicroNutritionReport.php",
+      contentType: "application/json",
+      dataType: 'json',
+      async: 'false',
+      success: function(result){
+
+         console.log(result);
+         var arr = Object.values(result);
+         var d = arr[2][2].data.responses;
+
+         var districts= [];
+         var percentage = [];
+         var frequencies =[];
+      
+         for(var i=0;i<d.length;i++){
+       
+         districts= arr[2][2].data.responses[i];
+         percentage = arr[2][2].data.percentages[i];
+         frequencies = arr[2][2].data.frequencies[i];
+         
+          xlabels3.push(districts);
+          ylabels3.push(percentage);
+         }
+        
+    
+        drawGraphs3();
+
+         
+      }
+  })
+}
+
+function obesityReports() {
+  $.ajax({
+      url: "assets/js/pages/getObesityReport.php",
+      contentType: "application/json",
+      dataType: 'json',
+      async: 'false',
+      success: function(result){
+
+         console.log(result);
+         var arr = Object.values(result);
+         var d = arr[2][2].data.percentages;
+
+         var districts= [];
+         var percentage = [];
+         var frequencies =[];
+      
+         for(var i=0;i<d.length;i++){
+       
+         districts= arr[2][2].data.responses[i];
+         percentage = arr[2][2].data.percentages[i];
+         frequencies = arr[2][2].data.frequencies[i];
+         
+          xlabels4.push(districts);
+          ylabels4.push(percentage);
+         }
+        
+    
+        drawGraphs4();
+
+         
+      }
+  })
+}
+
+
+function Cash_BasedReports() {
+  $.ajax({
+      url: "assets/js/pages/getCashBasedReport.php",
+      contentType: "application/json",
+      dataType: 'json',
+      async: 'false',
+      success: function(result){
+
+         console.log(result);
+         var arr = Object.values(result);
+         var d = arr[2][2].data.responses;
+
+         var districts= [];
+         var percentage = [];
+         var frequencies =[];
+      
+         for(var i=0;i<d.length;i++){
+       
+         districts= arr[2][2].data.responses[i];
+         percentage = arr[2][2].data.percentages[i];
+         frequencies = arr[2][2].data.frequencies[i];
+         
+          xlabels5.push(districts);
+          ylabels5.push(percentage);
+         }
+        
+    
+        drawGraphs5();
 
          
       }
@@ -122,13 +316,13 @@ var config1 = {
 var config2 = {
   type: "line",
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: xlabels1,
     datasets: [
       {
-        label: "Revenue",
+        label: "Percentage",
         backgroundColor: "#fff",
         borderColor: "#fff",
-        data: [20, 800, 300, 400, 10, 50, 20],
+        data: ylabels1,
         fill: false,
         pointBorderWidth: 100,
         pointBorderColor: "transparent",
@@ -190,13 +384,13 @@ var config2 = {
 var config3 = {
   type: "line",
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: xlabels2,
     datasets: [
       {
-        label: "Orders",
+        label: "Percentage",
         backgroundColor: "#fff",
         borderColor: "#fff",
-        data: [20, 40, 20, 200, 10, 540, 723],
+        data: ylabels2,
         fill: false,
         pointBorderWidth: 100,
         pointBorderColor: "transparent",
@@ -259,13 +453,13 @@ var config3 = {
 var config4 = {
   type: "line",
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: xlabels3,
     datasets: [
       {
-        label: "My First dataset",
+        label: "Percentage",
         backgroundColor: "#fff",
         borderColor: "#fff",
-        data: [20, 40, 20, 70, 10, 5, 23],
+        data: ylabels3,
         fill: false,
         pointBorderWidth: 100,
         pointBorderColor: "transparent",
@@ -329,13 +523,82 @@ var config4 = {
 var config5 = {
   type: "line",
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: xlabels4,
     datasets: [
       {
-        label: "My First dataset",
+        label: "Percentage",
         backgroundColor: "#fff",
         borderColor: "#fff",
-        data: [20, 40, 20, 70, 10, 5, 23],
+        data: ylabels4,
+        fill: false,
+        pointBorderWidth: 100,
+        pointBorderColor: "transparent",
+        pointRadius: 3,
+        pointBackgroundColor: "transparent",
+        pointHoverBackgroundColor: "rgba(63,82,227,1)",
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false, 
+    layout: {
+      padding: {
+        left: -10,
+        top: 10,
+      },
+    },
+    legend: {
+      display: false,
+    },
+    title: {
+      display: false,
+      text: "Chart.js Line Chart",
+    },
+    tooltips: {
+      mode: "index",
+      intersect: false,
+    },
+    hover: {
+      mode: "nearest",
+      intersect: true,
+    },
+    scales: {
+      xAxes: [
+        {
+          gridLines: {
+            drawBorder: false,
+            display: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
+      ],
+      yAxes: [
+        {
+          gridLines: {
+            display: false,
+            drawBorder: false,
+          },
+          ticks: {
+            display: false,
+          },
+        },
+      ],
+    },
+  },
+};
+var config6 = {
+  type: "line",
+  data: {
+    labels: xlabels5,
+    datasets: [
+      {
+        label: "Percentage",
+        backgroundColor: "#fff",
+        borderColor: "#fff",
+        data: ylabels5,
         fill: false,
         pointBorderWidth: 100,
         pointBorderColor: "transparent",
@@ -599,17 +862,52 @@ radialBars.render();
 
  function drawGraphs(){
 
-  let ctx1 = document.getElementById("canvas1").getContext("2d");
-  let ctx2 = document.getElementById("canvas2").getContext("2d");
+  let ctx0 = document.getElementById("canvas1").getContext("2d");
+ /* let ctx2 = document.getElementById("canvas2").getContext("2d");
   let ctx3 = document.getElementById("canvas3").getContext("2d");
   let ctx4 = document.getElementById("canvas4").getContext("2d");
-  let ctx5 = document.getElementById("canvas5").getContext("2d");
-  var lineChart1 = new Chart(ctx1, config1);
-  var lineChart2 = new Chart(ctx2, config2);
+  let ctx5 = document.getElementById("canvas5").getContext("2d");*/
+  var lineChart0 = new Chart(ctx0, config1);
+  /*var lineChart2 = new Chart(ctx2, config2);
   var lineChart3 = new Chart(ctx3, config3);
   var lineChart4 = new Chart(ctx4, config4);
-  var lineChart5 = new Chart(ctx5, config5);
+  var lineChart5 = new Chart(ctx5, config5);*/
   
 
  }
+ 
+ 
+
+   function drawGraphs1(){
+  
+    let ctx1 = document.getElementById("canvas2").getContext("2d");
+    var lineChart1 = new Chart(ctx1, config2);
+   }
+  
+   function drawGraphs2(){
+  
+    let ctx2 = document.getElementById("canvas3").getContext("2d");
+    var lineChart2 = new Chart(ctx2, config3); 
+  
+   }
+   function drawGraphs3(){
+  
+    let ctx3 = document.getElementById("canvas4").getContext("2d");
+    var lineChart3 = new Chart(ctx3, config4);
+  
+   }
+  
+   function drawGraphs4(){
+  
+    let ctx4 = document.getElementById("canvas5").getContext("2d");
+    var lineChart4 = new Chart(ctx4, config5);
+   
+   }
+   function drawGraphs5(){
+  
+    let ctx5 = document.getElementById("canvas6").getContext("2d");
+    var lineChart5 = new Chart(ctx5, config6);
+  
+   } 
+
  

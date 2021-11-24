@@ -4,7 +4,7 @@
 	header('Content-Type: application/json;charset=utf-8');
     
   
-      $url = "https://kf.kobotoolbox.org/assets/aX3b3uhnUbVUVwRkBCoaef/submissions.json";
+      $url = "https://kf.kobotoolbox.org/assets/a2cRkh9UzA6LaEFFwmCx83/reports.json";
 
       $curl = curl_init($url);
       curl_setopt($curl, CURLOPT_URL, $url);
@@ -19,9 +19,7 @@
       curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 
       $resp = curl_exec($curl);
-      echo $resp;
-      
-      
+       echo $resp;
        
       
 
