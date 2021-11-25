@@ -1,5 +1,5 @@
-    Options -MultiViews
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ $1.html [L,QSA]
+RewriteEngine On
+RewriteRule ^dashboard?$ dashboard.html
+RewriteRule ^stunting?$ stunting.html
+RewriteRule ^cash-based?$ cash.html
+RewriteRule ^obesity?$ obesity.html
