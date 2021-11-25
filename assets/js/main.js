@@ -1,6 +1,7 @@
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
-
+const res = localStorage.getItem("length");  
+console.log(res);
 
 
 !function(e) {
@@ -104,14 +105,12 @@ const EXCEL_EXTENSION = '.xlsx';
         var e = window.innerWidth;
         e < 768 && (console.log("widthnya ", e),
         document.getElementById("sidebar").classList.remove("active"))
-      
         reports();
-        schoolReports();
-        obesityReports();
-        Infantreports();
-        MicroReports();
-        Cash_BasedReports() ;
-        
+		schoolReports();
+		Infantreports();
+		MicroReports();
+		obesityReports();
+		Cash_BasedReports();
         getsub();
         getschool();
         getmicro();
@@ -119,7 +118,7 @@ const EXCEL_EXTENSION = '.xlsx';
         getcash();
         getobesity();
        
-        
+        $('#niti').hide();
    
     
     }
@@ -148,6 +147,13 @@ function getsub() {
            myarray = numb;
            var dn = document.getElementById('sabu').innerHTML=myarray+"(s)";
            console.log(myarray); 
+           localStorage.setItem("length", arr.length);
+
+           if(res!=myarray){
+
+            $('#niti').show();
+           }
+
          } catch (error) {
             var table = document.getElementById('sub');
             for(var i=0;i<arr.length;i++){
@@ -159,7 +165,6 @@ function getsub() {
     xhr.send();
    
 }
-
 
 function getschool(){
     var array;

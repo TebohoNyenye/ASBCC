@@ -21,6 +21,8 @@ const ylabels4=[];
 // Cash-Based
 const xlabels5=[];
 const ylabels5=[];
+//$('#stshow').hide();
+$('lo').hide();
 
  function reports() {
   $.ajax({
@@ -28,12 +30,17 @@ const ylabels5=[];
       contentType: "application/json",
       dataType: 'json',
       async: 'false',
+      beforeSend: function(){
+
+
+      },
       success: function(result){
 
          console.log(result);
          var arr = Object.values(result);
          var d = arr[2][3].data.responses;
-
+         $('#load').hide();
+         
          var districts= [];
          var percentage = [];
          var frequencies =[];
@@ -70,7 +77,7 @@ function schoolReports() {
          console.log(arr);
          var d = arr[2][2].data.percentages;
          
-         
+         $('#load1').hide();
 
          var districts= [];
          var percentage = [];
@@ -106,7 +113,7 @@ function Infantreports() {
          console.log(result);
          var arr = Object.values(result);
          var d = arr[2][3].data.responses;
-
+       $('#load2').hide();
          var districts= [];
          var percentage = [];
          var frequencies =[];
@@ -140,7 +147,7 @@ function MicroReports() {
          console.log(result);
          var arr = Object.values(result);
          var d = arr[2][2].data.responses;
-
+         $('#load3').hide();
          var districts= [];
          var percentage = [];
          var frequencies =[];
@@ -174,7 +181,9 @@ function obesityReports() {
          console.log(result);
          var arr = Object.values(result);
          var d = arr[2][2].data.percentages;
-
+ 
+         $('#load4').hide();
+         $('.chart-wrapper').show();
          var districts= [];
          var percentage = [];
          var frequencies =[];
@@ -209,7 +218,7 @@ function Cash_BasedReports() {
          console.log(result);
          var arr = Object.values(result);
          var d = arr[2][2].data.responses;
-
+         $('#load5').hide();
          var districts= [];
          var percentage = [];
          var frequencies =[];
