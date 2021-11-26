@@ -35,7 +35,7 @@
 
 
                         <li class="sidebar-item active ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="dashboard.html" class='sidebar-link'>
                                 <i data-feather="home" width="20"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -54,28 +54,29 @@
                             <ul class="submenu ">
 
                                 <li>
-                                    <a href="stunting.html" onclick="ee();">Stunting</a>
+                                    <a href="stunting">Stunting</a>
                                 </li>
 
                                 <li>
-                                    <a href="#">Micronutrient deficiencies</a>
+                                    <a href="micronutrient">Micronutrient deficiencies</a>
                                 </li>
 
                                 <li>
-                                    <a href="#">Infant and Young Child Feeding</a>
+                                    <a href="infant">Infant and Young Child Feeding</a>
                                 </li>
 
                                 <li>
-                                    <a href="#">Overweight and obesity</a>
+                                    <a href="obesity">Overweight and obesity</a>
                                 </li>
 
                                 <li>
-                                    <a href="#">School Feeding</a>
+                                    <a href="school">School Feeding</a>
                                 </li>
 
                                 <li>
-                                    <a href="#">Cash based transfers</a>
+                                    <a href="cash-based">Cash based transfers</a>
                                 </li>
+
 
                            
 
@@ -160,7 +161,7 @@
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar me-1">
-                                    <img src="assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="assets/images/avatar/avatar-s-1.jpg" alt="" srcset="">
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">Hi, admin</div>
                             </a>
@@ -188,7 +189,7 @@
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class='breadcrumb-header'>
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Reports</li>
                                    
                                 </ol>
@@ -196,8 +197,35 @@
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="row text-center">
+                      <div class="col-md-4">
+                        
+                        <button class="btn btn-primary" id="Rbutton" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="#multiCollapseExample1"><i data-feather="file-text" width="60"></i><br>Stunting</button>
+                      
+                      </div>
+                      <div class="col-md-4">
+                        <button class="btn btn-primary" id="Rbutton" data-toggle="collapse" href="#multiCollapseExample2" role="button" aria-expanded="false" aria-controls="#multiCollapseExample2"><i data-feather="file-text" width="60"></i><br>IYCF</button>
+                      </div>
+                      <div class="col-md-4">
+                        <button class="btn btn-primary" id="Rbutton" data-toggle="collapse" href="#multiCollapseExample3" role="button" aria-expanded="false" aria-controls="#multiCollapseExample3"><i data-feather="file-text" width="60"></i><br>Micronutrient</button>
+                      </div>
+                      <div class="col-md-4">
+                        <button class="btn btn-primary" id="Rbutton" data-toggle="collapse" href="#multiCollapseExample4" role="button" aria-expanded="false" aria-controls="#multiCollapseExample4"><i data-feather="file-text" width="60"></i><br>School feeding</button>
+                      </div>
+                      <div class="col-md-4">
+                        <button class="btn btn-primary" id="Rbutton" data-toggle="collapse" href="#multiCollapseExample5" role="button" aria-expanded="false" aria-controls="#multiCollapseExample5"><i data-feather="file-text" width="60"></i><br>Overweight and obesity</button>
+                      </div>
+                      <div class="col-md-4">
+                        <button class="btn btn-primary" id="Rbutton" data-toggle="collapse" href="#multiCollapseExample6" role="button" aria-expanded="false" aria-controls="#multiCollapseExample6"><i data-feather="file-text" width="60"></i><br>Cash Based</button>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="collapse multi-collapse" id="multiCollapseExample1">
                 <section class="section">
                     <div class="card">
+                        
                         <div class="card-header">
                             Reports about the data<br>
                             <button class="btn btn-primary" id="download">download Pdf</button>
@@ -206,7 +234,7 @@
                             <div class="col-md-12">
                             <div class="card" id="invoice">
                                 <div class="card-header bg-transparent header-elements-inline">
-                                    <h6 class="card-title text-primary text-center">ASBCC Report
+                                    <h6 class="card-title text-primary text-center">Stunting Report
                                         <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
                                     </h6>
                                 </div>
@@ -226,20 +254,14 @@
                                               
                                             </tr>
                                         </thead>
-                                        <tbody id="repo">
-                                            <tr>
-                                                <td>
-                                                    <h6 class="mb-0">Maseru</h6> 
-                                                </td>
-                                                <td>2</td>
-                                                <td>40.14</td>
-                                                
-                                            </tr>
-                                            <tr>
+                                        <tbody id="repo1">
+                                         
                                               
                                            
                                         </tbody>
                                     </table>
+                           <div class="text-center"><canvas id="myChart" style="width:100%;max-width:600px;"></canvas></div>
+
                                 </div>
                                 <div class="table-responsive">
                                     <table class="table table-lg">
@@ -285,18 +307,489 @@
                             </div>
                         </div>
                     </div>
-
                 </section>
+                  </div>
+
+                  <div class="collapse multi-collapse" id="multiCollapseExample2">
+                    <section class="section">
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                Reports about the data<br>
+                                <button class="btn btn-primary" id="download2">download Pdf</button>
+                            </div>
+                            <div class="card-body">
+                                <div class="col-md-12">
+                                <div class="card" id="invoice2">
+                                    <div class="card-header bg-transparent header-elements-inline">
+                                        <h6 class="card-title text-primary text-center">Infant and young child feeding Report
+                                            <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
+                                        </h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                          
+                                          
+                                        
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>District</th>
+                                                    <th>frequencies</th>
+                                                    <th>percentage</th>
+                                                  
+                                                </tr>
+                                            </thead>
+                                            <tbody id="repo">
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mb-0">Maseru</h6> 
+                                                    </td>
+                                                    <td>2</td>
+                                                    <td>40.14</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                  
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-lg">
+                                            <thead>
+                                                <tr>
+                                                    <th>Activity</th>
+                                                    <th>Mean</th>
+                                                    <th>Median</th>
+                                                    <th>Standard deviation</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mb-0">Nutrition_awareness_g_drama_social_media</h6> 
+                                                    </td>
+                                                    <td>120</td>
+                                                    <td>180</td>
+                                                    <td><span class="font-weight-semibold">300</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mb-0">Nutrition_campaigns</h6>
+                                                    </td>
+                                                    <td>140</td>
+                                                    <td>100</td>
+                                                    <td><span class="font-weight-semibold">240</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <h6 class="mb-0">Establishment_of_nutrition_clubs</h6> 
+                                                    </td>
+                                                    <td>250</td>
+                                                    <td>250</td>
+                                                    <td><span class="font-weight-semibold">500</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="card-body"></div>
+                                    <div class="card-footer"> <span class="text-muted">The Government of Lesotho is intensifying efforts towards improving implementation of nutrition policies and programmed through the Food and Nutrition Coordination Office (FNCO). The efforts are supported by Renewed Efforts Against Child Hunger and Undernutrition (REACH), including the World Food Programmed (WFP), and a number of other local and international development partners.</span> </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                      </div>
+
+                      <div class="collapse multi-collapse" id="multiCollapseExample3">
+                        <section class="section">
+                            <div class="card">
+                                
+                                <div class="card-header">
+                                    Reports about the data<br>
+                                    <button class="btn btn-primary" id="download3">download Pdf</button>
+                                </div>
+                                <div class="card-body">
+                                    <div class="col-md-12">
+                                    <div class="card" id="invoice3">
+                                        <div class="card-header bg-transparent header-elements-inline">
+                                            <h6 class="card-title text-primary text-center">Micronutrient Defeciencies Report
+                                                <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
+                                            </h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                              
+                                              
+                                            
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-lg">
+                                                <thead>
+                                                    <tr>
+                                                        <th>District</th>
+                                                        <th>frequencies</th>
+                                                        <th>percentage</th>
+                                                      
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="repo">
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="mb-0">Maseru</h6> 
+                                                        </td>
+                                                        <td>2</td>
+                                                        <td>40.14</td>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                      
+                                                   
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-lg">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Activity</th>
+                                                        <th>Mean</th>
+                                                        <th>Median</th>
+                                                        <th>Standard deviation</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="mb-0">Nutrition_awareness_g_drama_social_media</h6> 
+                                                        </td>
+                                                        <td>120</td>
+                                                        <td>180</td>
+                                                        <td><span class="font-weight-semibold">300</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="mb-0">Nutrition_campaigns</h6>
+                                                        </td>
+                                                        <td>140</td>
+                                                        <td>100</td>
+                                                        <td><span class="font-weight-semibold">240</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <h6 class="mb-0">Establishment_of_nutrition_clubs</h6> 
+                                                        </td>
+                                                        <td>250</td>
+                                                        <td>250</td>
+                                                        <td><span class="font-weight-semibold">500</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="card-body"></div>
+                                        <div class="card-footer"> <span class="text-muted">The Government of Lesotho is intensifying efforts towards improving implementation of nutrition policies and programmed through the Food and Nutrition Coordination Office (FNCO). The efforts are supported by Renewed Efforts Against Child Hunger and Undernutrition (REACH), including the World Food Programmed (WFP), and a number of other local and international development partners.</span> </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                          </div>
+
+                          <div class="collapse multi-collapse" id="multiCollapseExample4">
+                            <section class="section">
+                                <div class="card">
+                                    
+                                    <div class="card-header">
+                                        Reports about the data<br>
+                                        <button class="btn btn-primary" id="download4">download Pdf</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="col-md-12">
+                                        <div class="card" id="invoice4">
+                                            <div class="card-header bg-transparent header-elements-inline">
+                                                <h6 class="card-title text-primary text-center">School Feeding Report
+                                                    <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
+                                                </h6>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                  
+                                                  
+                                                
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-lg">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>District</th>
+                                                            <th>frequencies</th>
+                                                            <th>percentage</th>
+                                                          
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="repo">
+                                                        <tr>
+                                                            <td>
+                                                                <h6 class="mb-0">Maseru</h6> 
+                                                            </td>
+                                                            <td>2</td>
+                                                            <td>40.14</td>
+                                                            
+                                                        </tr>
+                                                        <tr>
+                                                          
+                                                       
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table table-lg">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Activity</th>
+                                                            <th>Mean</th>
+                                                            <th>Median</th>
+                                                            <th>Standard deviation</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <h6 class="mb-0">Nutrition_awareness_g_drama_social_media</h6> 
+                                                            </td>
+                                                            <td>120</td>
+                                                            <td>180</td>
+                                                            <td><span class="font-weight-semibold">300</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h6 class="mb-0">Nutrition_campaigns</h6>
+                                                            </td>
+                                                            <td>140</td>
+                                                            <td>100</td>
+                                                            <td><span class="font-weight-semibold">240</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <h6 class="mb-0">Establishment_of_nutrition_clubs</h6> 
+                                                            </td>
+                                                            <td>250</td>
+                                                            <td>250</td>
+                                                            <td><span class="font-weight-semibold">500</span></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="card-body"></div>
+                                            <div class="card-footer"> <span class="text-muted">The Government of Lesotho is intensifying efforts towards improving implementation of nutrition policies and programmed through the Food and Nutrition Coordination Office (FNCO). The efforts are supported by Renewed Efforts Against Child Hunger and Undernutrition (REACH), including the World Food Programmed (WFP), and a number of other local and international development partners.</span> </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                              </div>
+
+                              <div class="collapse multi-collapse" id="multiCollapseExample5">
+                                <section class="section">
+                                    <div class="card">
+                                        
+                                        <div class="card-header">
+                                            Reports about the data<br>
+                                            <button class="btn btn-primary" id="download5">download Pdf</button>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="col-md-12">
+                                            <div class="card" id="invoice5">
+                                                <div class="card-header bg-transparent header-elements-inline">
+                                                    <h6 class="card-title text-primary text-center">OverWeight & Obesity Report
+                                                        <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
+                                                    </h6>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                      
+                                                      
+                                                    
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-lg">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>District</th>
+                                                                <th>frequencies</th>
+                                                                <th>percentage</th>
+                                                              
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="repo">
+                                                            <tr>
+                                                                <td>
+                                                                    <h6 class="mb-0">Maseru</h6> 
+                                                                </td>
+                                                                <td>2</td>
+                                                                <td>40.14</td>
+                                                                
+                                                            </tr>
+                                                            <tr>
+                                                              
+                                                           
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table class="table table-lg">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Activity</th>
+                                                                <th>Mean</th>
+                                                                <th>Median</th>
+                                                                <th>Standard deviation</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <h6 class="mb-0">Nutrition_awareness_g_drama_social_media</h6> 
+                                                                </td>
+                                                                <td>120</td>
+                                                                <td>180</td>
+                                                                <td><span class="font-weight-semibold">300</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <h6 class="mb-0">Nutrition_campaigns</h6>
+                                                                </td>
+                                                                <td>140</td>
+                                                                <td>100</td>
+                                                                <td><span class="font-weight-semibold">240</span></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <h6 class="mb-0">Establishment_of_nutrition_clubs</h6> 
+                                                                </td>
+                                                                <td>250</td>
+                                                                <td>250</td>
+                                                                <td><span class="font-weight-semibold">500</span></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="card-body"></div>
+                                                <div class="card-footer"> <span class="text-muted">The Government of Lesotho is intensifying efforts towards improving implementation of nutrition policies and programmed through the Food and Nutrition Coordination Office (FNCO). The efforts are supported by Renewed Efforts Against Child Hunger and Undernutrition (REACH), including the World Food Programmed (WFP), and a number of other local and international development partners.</span> </div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                  </div>
+
+                                  <div class="collapse multi-collapse" id="multiCollapseExample6">
+                                    <section class="section">
+                                        <div class="card">
+                                            
+                                            <div class="card-header">
+                                                Reports about the data<br>
+                                                <button class="btn btn-primary" id="download6">download Pdf</button>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="col-md-12">
+                                                <div class="card" id="invoice6">
+                                                    <div class="card-header bg-transparent header-elements-inline">
+                                                        <h6 class="card-title text-primary text-center">Cashed Based Transfer Report
+                                                            <br><img class="img-fluid" src="assets/images/logo.png" style="height:60px; width:60px;"/>
+                                                        </h6>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                          
+                                                          
+                                                        
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-lg">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>District</th>
+                                                                    <th>frequencies</th>
+                                                                    <th>percentage</th>
+                                                                  
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody id="repo">
+                                                                <tr>
+                                                                    <td>
+                                                                        <h6 class="mb-0">Maseru</h6> 
+                                                                    </td>
+                                                                    <td>2</td>
+                                                                    <td>40.14</td>
+                                                                    
+                                                                </tr>
+                                                                <tr>
+                                                                  
+                                                               
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-lg">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Activity</th>
+                                                                    <th>Mean</th>
+                                                                    <th>Median</th>
+                                                                    <th>Standard deviation</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h6 class="mb-0">Nutrition_awareness_g_drama_social_media</h6> 
+                                                                    </td>
+                                                                    <td>120</td>
+                                                                    <td>180</td>
+                                                                    <td><span class="font-weight-semibold">300</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h6 class="mb-0">Nutrition_campaigns</h6>
+                                                                    </td>
+                                                                    <td>140</td>
+                                                                    <td>100</td>
+                                                                    <td><span class="font-weight-semibold">240</span></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <h6 class="mb-0">Establishment_of_nutrition_clubs</h6> 
+                                                                    </td>
+                                                                    <td>250</td>
+                                                                    <td>250</td>
+                                                                    <td><span class="font-weight-semibold">500</span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="card-body"></div>
+                                                    <div class="card-footer"> <span class="text-muted">The Government of Lesotho is intensifying efforts towards improving implementation of nutrition policies and programmed through the Food and Nutrition Coordination Office (FNCO). The efforts are supported by Renewed Efforts Against Child Hunger and Undernutrition (REACH), including the World Food Programmed (WFP), and a number of other local and international development partners.</span> </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                      </div>
+            </div>
             </div>
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
-                    <div class="float-start">
-                        <p>2020 &copy; Asbcc</p>
+                    <div class="float-start"><!---->
+                        <p>2021 &copy; Asbcc</p>
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">Tech4All</a></p>
+                                href="https://techforall.co.ls/">Tech4All</a></p>
                     </div>
                 </div>
             </footer>
@@ -305,19 +798,81 @@
    
 
     <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/me.js"></script>
     <script src="assets/js/feather-icons/feather.min.js"></script>
     <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
     <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/pages/dashboard.js"></script>
+    <!--<script src="assets/js/pages/dashboard.js"></script>-->
     <script src="assets/vendors/chartjs/Chart.min.js"></script>
     <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/pdf.js"></script>
 
     <script>
-    
+      $.ajax({
+      url: "assets/js/getstuntreports.php",
+      contentType: "application/json",
+      dataType: 'json',
+      async: 'false',
+      success: function(result){
+         console.log(result);
+          var arr = Object.values(result);
+          
+          console.log(arr);
+         console.log(arr[2][3].data.responses);
+         console.log(arr[2][3].data.percentages);
+         //console.log(arr[2][3].responses);
+         //var are=arr.length ;
+        var d = arr[2][3].data.responses;
+         console.log(d.length);
+         var districts= [];
+         var percentage = [];
+         var frequencies =[];
+         
+         for(var i=0;i<d.length;i++){
+         districts= arr[2][3].data.responses[i];
+         percentage = arr[2][3].data.percentages[i];
+         frequencies = arr[2][3].data.frequencies[i];
+         $('#repo1').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
+         console.log(districts);    
+         xValues.push(districts);
+         yValues.push(percentage);
+           
+         }
+         
+      }
+
+  })
+
+var xValues = [];
+var yValues = [];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ASBCC District Performance"
+    }
+  }
+});
     
     </script>
     

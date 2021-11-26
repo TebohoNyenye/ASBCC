@@ -3,3 +3,7 @@ RewriteRule ^dashboard?$ dashboard.html
 RewriteRule ^stunting?$ stunting.html
 RewriteRule ^cash-based?$ cash.html
 RewriteRule ^obesity?$ obesity.html
+RewriteRule ^micronutrient?$ micro.html
+RewriteRule ^reports?$ reports.html
+RewriteRule ^infant?$ infant.html
+RewriteRule ^school?$ school.html
