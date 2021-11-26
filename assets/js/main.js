@@ -149,7 +149,7 @@ function notification(){
             // navigate to a URL when clicked
             notification.addEventListener('click', () => {
     
-                window.open('http://localhost/asbcc/dashboard', '_blank');
+                window.open('http://asbcc.herokuapp.com/dashboard.html', '_blank');
             });
         }
     
