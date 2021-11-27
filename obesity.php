@@ -1,3 +1,24 @@
+<?php 
+
+    // First we execute our common code to connection to the database and start the session 
+    require("common.php"); 
+     
+    // At the top of the page we check to see whether the user is logged in or not 
+    if(empty($_SESSION['user'])) 
+    { 
+        // If they are not, we redirect them to the login page. 
+        header("Location: login"); 
+         
+        // Remember that this die statement is absolutely critical.  Without it, 
+        // people can view your members-only content without logging in. 
+        die("Redirecting to login.php"); 
+    } 
+     
+    // Everything below this point in the file is secured by the login system 
+     
+    // We can display the user's username to them by reading it from the session array.  Remember that because 
+    // a username is user submitted content we must use htmlentities on it before displaying it to the user. 
+?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +54,7 @@
 
 
                         <li class="sidebar-item active ">
-                            <a href="dashoard" class='sidebar-link'>
+                            <a href="dashboard" class='sidebar-link'>
                                 <i data-feather="home" width="20"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -50,8 +71,7 @@
                             </a>
 
                             <ul class="submenu ">
-
-                               <li>
+                                <li>
                                     <a href="stunting">Stunting</a>
                                 </li>
 
@@ -74,7 +94,6 @@
                                 <li>
                                     <a href="cash-based">Cash based transfers</a>
                                 </li>
-
                            
 
                             </ul>
@@ -178,7 +197,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Micronutrient defeciencies</h3>
+                            <h3>Overweight and Obesity</h3>
                             <p class="text-subtitle text-muted">We use 'simple-datatables
                                  <a
                                     href="#">here</a>.</p>
@@ -188,7 +207,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Themes</li>
-                                    <li class="breadcrumb-item active" aria-current="page" onclick="">Micronutrient defeciencies</li>
+                                    <li class="breadcrumb-item active" aria-current="page" onclick="">Overweight and Obesity</li>
                                 </ol>
                             </nav>
                         </div>
@@ -197,8 +216,8 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-header">
-                            Micronutrient defeciencies Datatable<br>
-                            <button class="btn btn-primary" onclick="download2()">download excel</button>
+                            Overweight and obesity Datatable<br>
+                            <button class="btn btn-primary" onclick="download4()">download excel</button>
                         </div>
                         <div class="card-body">
                             <table class='table table-striped' id="table1">
@@ -211,7 +230,7 @@
                                         <th>End time</th>
                                     </tr>
                                 </thead>
-                                <tbody id="sub3">
+                                <tbody id="sub5">
                                  
 
                                     
@@ -232,7 +251,7 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a
-                                href="https://techforall.co.ls/">Tech4All</a></p>
+                             href="https://techforall.co.ls/">Tech4All</a></p>
                     </div>
                 </div>
             </footer>
@@ -250,6 +269,7 @@
     <script src="assets/vendors/chartjs/Chart.min.js"></script>
     <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
 
     <script>
     

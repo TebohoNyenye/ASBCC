@@ -1,9 +1,10 @@
 RewriteEngine On
-RewriteRule ^dashboard?$ dashboard.html
-RewriteRule ^stunting?$ stunting.html
-RewriteRule ^cash-based?$ cash.html
-RewriteRule ^obesity?$ obesity.html
-RewriteRule ^micronutrient?$ micro.html
-RewriteRule ^reports?$ reports.html
-RewriteRule ^infant?$ infant.html
-RewriteRule ^school?$ school.html
+RewriteRule ^dashboard?$ dashboard.php
+RewriteRule ^stunting?$ stunting.php
+RewriteRule ^cash-based?$ cash.php
+RewriteRule ^obesity?$ obesity.php
+RewriteRule ^micronutrient?$ micro.php
+RewriteRule ^reports?$ reports.php
+RewriteRule ^infant?$ infant.php
+RewriteRule ^school?$ school.php
+RewriteRule ^login?$ login.php

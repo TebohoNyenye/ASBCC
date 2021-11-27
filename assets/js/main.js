@@ -164,8 +164,7 @@ function getsub() {
             $('#niti').show();
             $('#noti').append('<p class="text-xs">'+str+'</p>');
 
-
-            (async () => {
+(async () => {
                 // create and show the notification
                 const showNotification = () => {
                     // create a new notification
@@ -207,6 +206,7 @@ function getsub() {
                 granted ? showNotification() : showError();
             
             })();
+
 
 
            }

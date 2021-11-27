@@ -1,3 +1,24 @@
+<?php 
+
+    // First we execute our common code to connection to the database and start the session 
+    require("common.php"); 
+     
+    // At the top of the page we check to see whether the user is logged in or not 
+    if(empty($_SESSION['user'])) 
+    { 
+        // If they are not, we redirect them to the login page. 
+        header("Location: login"); 
+         
+        // Remember that this die statement is absolutely critical.  Without it, 
+        // people can view your members-only content without logging in. 
+        die("Redirecting to login.php"); 
+    } 
+     
+    // Everything below this point in the file is secured by the login system 
+     
+    // We can display the user's username to them by reading it from the session array.  Remember that because 
+    // a username is user submitted content we must use htmlentities on it before displaying it to the user. 
+?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +72,7 @@
 
                             <ul class="submenu ">
 
-                                <li>
+                                 <li>
                                     <a href="stunting">Stunting</a>
                                 </li>
 
@@ -74,7 +95,6 @@
                                 <li>
                                     <a href="cash-based">Cash based transfers</a>
                                 </li>
-
                            
 
                             </ul>
@@ -127,13 +147,13 @@
                                 <ul class="list-group rounded-none">
                                     <li class="list-group-item border-0 align-items-start">
                                         <div class="avatar bg-success me-3">
-                                            <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
+                                            <span class="avatar-content"><i data-feather="bell"></i></span>
                                         </div>
                                         <div>
-                                            <h6 class='text-bold'>New Order</h6>
-                                            <p class='text-xs'>
-                                                An order made by Ahmad Saugi for product Samsung Galaxy S69
-                                            </p>
+                                            <div id ="noti">
+                                            <h6 class='text-bold'>New Notifications</h6>
+                                            
+                                        </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -158,7 +178,7 @@
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="avatar me-1">
-                                    <img src="assets/images/avatar/avatar-s-1.png" alt="" srcset="">
+                                    <img src="assets/images/avatar/avatar-s-1.jpg" alt="" srcset="">
                                 </div>
                                 <div class="d-none d-md-block d-lg-inline-block">Hi, admin</div>
                             </a>
@@ -178,7 +198,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Infant and Young Child Feeding details</h3>
+                            <h3>Stunting details</h3>
                             <p class="text-subtitle text-muted">We use 'simple-datatables
                                  <a
                                     href="#">here</a>.</p>
@@ -188,7 +208,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Themes</li>
-                                    <li class="breadcrumb-item active" aria-current="page" onclick="">Infant and Young Child Feeding</li>
+                                    <li class="breadcrumb-item active" aria-current="page" onclick="">stunting </li>
                                 </ol>
                             </nav>
                         </div>
@@ -197,8 +217,11 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-header">
-                            Infant and Young Child Feeding Datatable<br>
-                            <button class="btn btn-primary" onclick="download1()">download excel</button>
+                            Stunting Datatable<br>
+                            <button class="btn btn-primary" onclick="download()">download excel<br>
+                             
+
+                            </button>
                         </div>
                         <div class="card-body">
                             <table class='table table-striped' id="table1">
@@ -211,7 +234,7 @@
                                         <th>End time</th>
                                     </tr>
                                 </thead>
-                                <tbody id="sub4">
+                                <tbody id="sub">
                                  
 
                                     
@@ -232,7 +255,7 @@
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a
-                           href="https://techforall.co.ls/">Tech4All</a></p>
+                                  href="https://techforall.co.ls/">Tech4All</a></p>
                     </div>
                 </div>
             </footer>
@@ -250,6 +273,7 @@
     <script src="assets/vendors/chartjs/Chart.min.js"></script>
     <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/jquery-3.4.1.min.js"></script>
 
     <script>
     
