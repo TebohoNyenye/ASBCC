@@ -90,12 +90,13 @@
              
             // Redirect the user to the private members-only page. 
             header("Location: dashboard"); 
-            die("Redirecting to: private.php"); 
+            die("Redirecting to: dashboard"); 
         } 
         else 
         { 
             // Tell the user they failed 
-            print("Login Failed."); 
+            print("<div class='alert alert-danger'> <strong>Try again!</strong> Login failed</div>"); 
+            
              
             // Show them their username again so all they have to do is enter a new 
             // password.  The use of htmlentities prevents XSS attacks.  You should 
@@ -133,7 +134,7 @@
                                 <h3>Sign In</h3>
                                 <p>Please sign in to continue to ASBCC.</p>
                             </div>
-                            <form action="login.php" method="post">
+                            <form action="login" method="post">
                                 <div class="form-group position-relative has-icon-left">
                                     <label for="username">Username</label>
                                     <div class="position-relative">
@@ -164,7 +165,7 @@
                                         <label for="checkbox1">Remember me</label>
                                     </div>
                                     <div class="float-end">
-                                      <!---->  <a href="auth-register.html">Don't have an account?</a>
+                                      <!-- <a href="auth-register.html">Don't have an account?</a>-->  
                                     </div>
                                 </div>
                                 <div class="clearfix">
