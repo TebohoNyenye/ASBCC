@@ -11,7 +11,7 @@
          
         // Remember that this die statement is absolutely critical.  Without it, 
         // people can view your members-only content without logging in. 
-        die("Redirecting to login.php"); 
+        die("Redirecting to login"); 
     } 
      
     // Everything below this point in the file is secured by the login system 
@@ -22,7 +22,7 @@
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
-    require("common.php"); 
+  //  require("common.php"); 
      
     // This if statement checks to determine whether the registration form has been submitted 
     // If it has, then the registration code is run, otherwise the form is displayed 
@@ -199,25 +199,120 @@
         } 
          
         // This redirects the user back to the login page after they register 
-        header("Location: login.php"); 
+        header("Location: dashboard"); 
          
         // Calling die or exit after performing a redirect using the header function 
         // is critical.  The rest of your PHP script will continue to execute and 
         // will be sent to the user if you do not die or exit. 
-        die("Redirecting to login.php"); 
+        die("Redirecting to dashboard"); 
     } 
      
 ?> 
-<h1>Register</h1> 
-<form action="register.php" method="post"> 
-    Username:<br /> 
-    <input type="text" name="username" value="" /> 
-    <br /><br /> 
-    E-Mail:<br /> 
-    <input type="text" name="email" value="" /> 
-    <br /><br /> 
-    Password:<br /> 
-    <input type="password" name="password" value="" /> 
-    <br /><br /> 
-    <input type="submit" value="Register" /> 
-</form>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - ASBCC Admin Dashboard</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <div id="auth">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-12 mx-auto">
+                    <div class="card pt-4">
+                        <div class="card-body">
+                            <div class="text-center mb-5">
+                                <img src="assets/images/logo.png" height="48" class='mb-4'>
+                                <h3>Sign In</h3>
+                                <p>Please register user to ASBCC.</p>
+                            </div>
+                            <form action="register.php" method="post"> 
+                                <div class="form-group position-relative has-icon-left">
+                                    <label for="username">Username</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" id="username" name="username" required>
+                                        <div class="form-control-icon">
+                                            <i data-feather="user"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group position-relative has-icon-left">
+                                    <label for="username">Email</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" id="email" name="email" required>
+                                        <div class="form-control-icon">
+                                            <i data-feather="mail"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group position-relative has-icon-left">
+                                    <div class="clearfix">
+                                        <label for="password">Password</label>
+                                        <a href="forgot-password" class='float-end'>
+                                            <small>Forgot password?</small>
+                                        </a>
+                                    </div>
+                                    <div class="position-relative">
+                                        <input type="password" class="form-control" id="password" name="password" required>
+                                        <div class="form-control-icon">
+                                            <i data-feather="lock"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='form-check clearfix my-4'>
+                                    <div class="checkbox float-start">
+                                        <input type="checkbox" id="checkbox1" class='form-check-input'>
+                                        <label for="checkbox1">Remember me</label>
+                                    </div>
+                                    <div class="float-end">
+                                      <!-- <a href="auth-register.html">Don't have an account?</a> -->  
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <button class="btn btn-primary float-end" value="Register" >Submit</button>
+                                </div>
+                            </form>
+                            <div class="divider">
+                                <div class="divider-text">OR</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button class="btn btn-block mb-2 btn-primary"><i data-feather="facebook"></i>
+                                        Facebook</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button class="btn btn-block mb-2 btn-secondary"><i data-feather="github"></i>
+                                        Github</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="assets/js/feather-icons/feather.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+
+
+    </script>
+</body>
+
+</html>

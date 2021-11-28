@@ -11,14 +11,40 @@
          
         // Remember that this die statement is absolutely critical.  Without it, 
         // people can view your members-only content without logging in. 
-        die("Redirecting to login.php"); 
+        die("Redirecting to login"); 
     } 
      
     // Everything below this point in the file is secured by the login system 
      
-    // We can display the user's username to them by reading it from the session array.  Remember that because 
-    // a username is user submitted content we must use htmlentities on it before displaying it to the user. 
-?> 
+    // We can retrieve a list of members from the database using a SELECT query. 
+    // In this case we do not have a WHERE clause because we want to select all 
+    // of the rows from the database table. 
+    $query = " 
+        SELECT 
+            id, 
+            username, 
+            email 
+        FROM users 
+    "; 
+     
+    try 
+    { 
+        // These two statements run the query against your database table. 
+        $stmt = $db->prepare($query); 
+        $stmt->execute(); 
+    } 
+    catch(PDOException $ex) 
+    { 
+        // Note: On a production website, you should not output $ex->getMessage(). 
+        // It may provide an attacker with helpful information about your code.  
+        die("Failed to run query: " . $ex->getMessage()); 
+    } 
+         
+    // Finally, we can retrieve all of the found rows into an array using fetchAll 
+    $rows = $stmt->fetchAll(); 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,7 +97,8 @@
                             </a>
 
                             <ul class="submenu ">
-                                <li>
+
+                                 <li>
                                     <a href="stunting">Stunting</a>
                                 </li>
 
@@ -146,13 +173,13 @@
                                 <ul class="list-group rounded-none">
                                     <li class="list-group-item border-0 align-items-start">
                                         <div class="avatar bg-success me-3">
-                                            <span class="avatar-content"><i data-feather="shopping-cart"></i></span>
+                                            <span class="avatar-content"><i data-feather="bell"></i></span>
                                         </div>
                                         <div>
-                                            <h6 class='text-bold'>New Order</h6>
-                                            <p class='text-xs'>
-                                                An order made by Ahmad Saugi for product Samsung Galaxy S69
-                                            </p>
+                                            <div id ="noti">
+                                            <h6 class='text-bold'>New Notifications</h6>
+                                            
+                                        </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -166,7 +193,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                             
+                              
                             </div>
                         </li>
                         <li class="dropdown">
@@ -193,17 +220,15 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Overweight and Obesity</h3>
-                            <p class="text-subtitle text-muted">We use 'simple-datatables
-                                 <a
-                                    href="#">here</a>.</p>
+                            <h3>Users details</h3>
+                        
                         </div>
                         <div class="col-12 col-md-6 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class='breadcrumb-header'>
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="dashboard">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Themes</li>
-                                    <li class="breadcrumb-item active" aria-current="page" onclick="">Overweight and Obesity</li>
+                                    <li class="breadcrumb-item active" aria-current="page" onclick="">stunting </li>
                                 </ol>
                             </nav>
                         </div>
@@ -212,27 +237,22 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-header">
-                            Overweight and obesity Datatable<br>
-                            <button class="btn btn-primary" onclick="download4()">download excel</button>
+                          ASBCC Users<br>
                         </div>
                         <div class="card-body">
                             <table class='table table-striped' id="table1">
-                                <thead>
-                                    <tr>
-                                        <th>Districts</th>
-                                        <th>submit time</th>
-                                        <th>submitted by</th>
-                                        <th>start time</th>
-                                        <th>End time</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="sub5">
-                                 
-
-                                    
-                               
-                                    
-                                </tbody>
+                            <tr> 
+        <th>ID</th> 
+        <th>Username</th> 
+        <th>E-Mail Address</th> 
+    </tr> 
+    <?php foreach($rows as $row): ?> 
+        <tr> 
+            <td><?php echo $row['id']; ?></td> <!-- htmlentities is not needed here because $row['id'] is always an integer --> 
+            <td><?php echo htmlentities($row['username'], ENT_QUOTES, 'UTF-8'); ?></td> 
+            <td><?php echo htmlentities($row['email'], ENT_QUOTES, 'UTF-8'); ?></td> 
+        </tr> 
+    <?php endforeach; ?> 
                             </table>
                         </div>
                     </div>
@@ -243,11 +263,11 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Asbcc</p>
+                        <p>2020 &copy; Asbcc</p>
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a
-                             href="https://techforall.co.ls/">Tech4All</a></p>
+                                  href="https://techforall.co.ls/">Tech4All</a></p>
                     </div>
                 </div>
             </footer>

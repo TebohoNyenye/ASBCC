@@ -7,11 +7,11 @@
     if(empty($_SESSION['user'])) 
     { 
         // If they are not, we redirect them to the login page. 
-        header("Location: login.php"); 
+        header("Location: login"); 
          
         // Remember that this die statement is absolutely critical.  Without it, 
         // people can view your members-only content without logging in. 
-        die("Redirecting to login.php"); 
+        die("Redirecting to login"); 
     } 
      
     // This if statement checks to determine whether the edit form has been submitted 
@@ -140,26 +140,103 @@
         $_SESSION['user']['email'] = $_POST['email']; 
          
         // This redirects the user back to the members-only page after they register 
-        header("Location: private.php"); 
+        header("Location: dashboard"); 
          
         // Calling die or exit after performing a redirect using the header function 
         // is critical.  The rest of your PHP script will continue to execute and 
         // will be sent to the user if you do not die or exit. 
-        die("Redirecting to private.php"); 
+        die("Redirecting to dashboard"); 
     } 
      
 ?> 
-<h1>Edit Account</h1> 
-<form action="edit_account.php" method="post"> 
-    Username:<br /> 
-    <b><?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?></b> 
-    <br /><br /> 
-    E-Mail Address:<br /> 
-    <input type="text" name="email" value="<?php echo htmlentities($_SESSION['user']['email'], ENT_QUOTES, 'UTF-8'); ?>" /> 
-    <br /><br /> 
-    Password:<br /> 
-    <input type="password" name="password" value="" /><br /> 
-    <i>(leave blank if you do not want to change your password)</i> 
-    <br /><br /> 
-    <input type="submit" value="Update Account" /> 
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in - ASBCC Admin Dashboard</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+
+<body>
+    <div id="auth">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-12 mx-auto">
+                    <div class="card pt-4">
+                        <div class="card-body">
+                            <div class="text-center mb-5">
+                                <img src="assets/images/logo.png" height="48" class='mb-4'>
+                                <h3>Update account</h3>
+                       
+                            </div>
+                            <form action="edit_account.php" method="post"> 
+                                <div class="form-group position-relative has-icon-left">
+                                    <label for="username">Username</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                                        <div class="form-control-icon">
+                                            <i data-feather="user"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group position-relative has-icon-left">
+                                    <label for="username">Email</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" id="email" name="email" value="<?php echo htmlentities($_SESSION['user']['email'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                                        <div class="form-control-icon">
+                                            <i data-feather="mail"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group position-relative has-icon-left">
+                                    <div class="clearfix">
+                                        <label for="password">Password</label>
+                                        
+                                    </div>
+                                    <div class="position-relative">
+                                        <input type="password" class="form-control" id="password" name="password" required>
+                                        <div class="form-control-icon">
+                                            <i data-feather="lock"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class='form-check clearfix my-4'>
+                                    <div class="checkbox float-start">
+                                    <i>(leave blank if you do not want to change your password)</i> 
+                                    </div>
+                                    <div class="float-end">
+                                      <!-- <a href="auth-register.html">Don't have an account?</a> -->  
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                    <button class="btn btn-primary float-end" value="Update Account">update account</button>
+                                </div>
+                            </form>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="assets/js/feather-icons/feather.min.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+
+
+    </script>
+</body>
+
+</html>

@@ -17,7 +17,8 @@
     // Everything below this point in the file is secured by the login system 
      
     // We can display the user's username to them by reading it from the session array.  Remember that because 
-?>
+    // a username is user submitted content we must use htmlentities on it before displaying it to the user. 
+?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,7 +74,7 @@
 
                             <ul class="submenu ">
 
-                            <li>
+                                <li>
                                     <a href="stunting">Stunting</a>
                                 </li>
 
@@ -96,6 +97,7 @@
                                 <li>
                                     <a href="cash-based">Cash based transfers</a>
                                 </li>
+
 
                            
 
@@ -169,7 +171,11 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                               
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
+                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="logout"><i data-feather="log-out"></i> Logout</a>
                             </div>
                         </li>
                         <li class="dropdown">
@@ -178,14 +184,14 @@
                                 <div class="avatar me-1">
                                     <img src="assets/images/avatar/avatar-s-1.jpg" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Lumela, <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?></div>
+                                <div class="d-none d-md-block d-lg-inline-block">Hi, admin</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="register"><i data-feather="user"></i> Register user</a>
-                               
-                                <a class="dropdown-item" href="account"><i data-feather="settings"></i> Settings</a>
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
+                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="logout"><i data-feather="log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -197,7 +203,7 @@
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
                             <h3>Reports about themes</h3>
-                            <p class="text-subtitle text-muted">Please download the reports of the themes 
+                            <p class="text-subtitle text-muted">Please download the reports of the themes   
                                  <a
                                     href="#">below</a>.</p>
                         </div>
@@ -357,14 +363,15 @@
                                                   
                                                 </tr>
                                             </thead>
-                                            <tbody id="repo">
-                                            
+                                            <tbody id="repo2">
+                                               
                                                   
                                                
                                             </tbody>
                                         </table>
                                         <div class="text-center"><canvas id="myChart1" style="width:100%;max-width:600px;"></canvas></div>
                                     </div>
+                                   
                                     <div class="table-responsive">
                                         <table class="table table-lg">
                                             <thead>
@@ -445,7 +452,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody id="repo3">
-                                                
+                                                  
                                                    
                                                 </tbody>
                                             </table>
@@ -531,7 +538,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody id="repo4">
-                                                       
+                                                      
                                                        
                                                     </tbody>
                                                 </table>
@@ -617,7 +624,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody id="repo5">
-                                                            
+                                                     
                                                               
                                                            
                                                         </tbody>
@@ -703,8 +710,9 @@
                                                                   
                                                                 </tr>
                                                             </thead>
-                                                            <tbody id="repo2">
-                                                             
+                                                            <tbody id="repo6">
+                                                        
+                                                                  
                                                                
                                                             </tbody>
                                                         </table>
@@ -785,11 +793,11 @@
     <!--<script src="assets/js/pages/dashboard.js"></script>-->
     <script src="assets/vendors/chartjs/Chart.min.js"></script>
     <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/main.js"></script>
     <script src="assets/js/pdf.js"></script>
+    <script src="assets/js/main.js"></script>
+
 
     <script>
-
 var xValues = [];
 var yValues = [];
 
@@ -808,7 +816,9 @@ var yValues4 = [];
 var xValues5 = [];
 var yValues5 = [];
 
- $.ajax({
+ window.onload = function(){
+
+  $.ajax({
       url: "assets/js/getstuntreports.php",
       contentType: "application/json",
       dataType: 'json',
@@ -867,7 +877,7 @@ var yValues5 = [];
          districts= arr[2][3].data.responses[i];
          percentage = arr[2][3].data.percentages[i];
          frequencies = arr[2][3].data.frequencies[i];
-         $('#repo').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
+         $('#repo2').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
          console.log(districts);    
          xValues1.push(districts);
          yValues1.push(percentage);
@@ -875,9 +885,9 @@ var yValues5 = [];
          }
          
       }
-    })
 
-    $.ajax({
+  })
+  $.ajax({
       url: "assets/js/pages/getMicroNutritionReport.php",
       contentType: "application/json",
       dataType: 'json',
@@ -1006,7 +1016,7 @@ var yValues5 = [];
          districts= arr[2][2].data.responses[i];
          percentage = arr[2][2].data.percentages[i];
          frequencies = arr[2][2].data.frequencies[i];
-         $('#repo2').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
+         $('#repo6').append('<tr><td><h6 class="mb-0">'+districts+'</h6></td><td>'+frequencies+'</td><td>'+percentage+'</td></tr><tr>');
          console.log(districts);    
          xValues5.push(districts);
          yValues5.push(percentage);
@@ -1016,33 +1026,33 @@ var yValues5 = [];
       }
 
   })
+}
 
+function graph(){
 
-  function graph(){
-
-var barColors = [
-"#b91d47",
-"#00aba9",
-"#2b5797",
-"#e8c3b9",
-"#1e7145"
+    var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
 ];
 
 new Chart("myChart", {
-type: "pie",
-data: {
-labels: xValues,
-datasets: [{
-  backgroundColor: barColors,
-  data: yValues
-}]
-},
-options: {
-title: {
-  display: true,
-  text: "ASBCC District Performance"
-}
-}
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "ASBCC District Performance"
+    }
+  }
 });
 
 }
@@ -1075,7 +1085,6 @@ title: {
 });
 
 }
-
 
 function graph2(){
 
@@ -1164,7 +1173,6 @@ title: {
 
 }
 
-
 function graph5(){
 
 var barColors = [
@@ -1193,10 +1201,7 @@ title: {
 });
 
 }
-    
-    </script>
-    
-    
+ </script>
 </body>
 
 </html>

@@ -103,7 +103,7 @@
 
 
                         <li class="sidebar-item  ">
-                            <a href="users.html" class='sidebar-link'>
+                            <a href="users" class='sidebar-link'>
                                 <i data-feather="user" width="20"></i>
                                 <span>Users</span>
                             </a>
@@ -166,11 +166,7 @@
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
-                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
-                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                           
                             </div>
                         </li>
                         <li class="dropdown">
@@ -179,14 +175,14 @@
                                 <div class="avatar me-1">
                                     <img src="assets/images/avatar/avatar-s-1.jpg" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Hi, Admin</div>
+                                <div class="d-none d-md-block d-lg-inline-block">Lumela, <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?></div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
-                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
-                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
+                                <a class="dropdown-item" href="register"><i data-feather="user"></i> Register user</a>
+                               
+                                <a class="dropdown-item" href="account"><i data-feather="settings"></i> Settings</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="logout.php"><i data-feather="log-out"></i> Logout</a>
+                                <a class="dropdown-item" href="logout"><i data-feather="log-out"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -251,7 +247,7 @@
                                 <div class="card-body p-0">
                                     <div class="d-flex flex-column">
                                         <div class='px-3 py-3 d-flex justify-content-between'>
-                                            <h3 class='card-title'>Infant</h3>
+                                            <h3 class='card-title'>IYCF</h3>
                                             <div class="card-right d-flex align-items-center">
                                                 <p id="inf">0(s)</p>
                                             </div>
@@ -586,7 +582,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2020 &copy; Abcc</p>
+                        <p>2021 &copy; Asbcc</p>
                     </div>
                     <div class="float-end">
                         <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a

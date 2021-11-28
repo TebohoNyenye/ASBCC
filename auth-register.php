@@ -26,20 +26,7 @@
                             </div>
                             <form action="index.html">
                                 <div class="row">
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="first-name-column">First Name</label>
-                                            <input type="text" id="first-name-column" class="form-control"
-                                                name="fname-column" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-12">
-                                        <div class="form-group">
-                                            <label for="last-name-column">Last Name</label>
-                                            <input type="text" id="last-name-column" class="form-control"
-                                                name="lname-column"required>
-                                        </div>
-                                    </div>
+                            
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="username-column">Username</label>
@@ -49,14 +36,14 @@
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="country-floating">Country</label>
+                                            <label for="country-floating">District</label>
                                             <input type="text" id="country-floating" class="form-control"
                                                 name="country-floating" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="company-column">Company</label>
+                                            <label for="company-column">Password</label>
                                             <input type="text" id="company-column" class="form-control"
                                                 name="company-column"required>
                                         </div>
