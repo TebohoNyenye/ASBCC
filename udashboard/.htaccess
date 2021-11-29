@@ -1,0 +1,15 @@
+RewriteEngine On
+RewriteRule ^dashboard?$ dashboard.php
+RewriteRule ^stunting?$ stunting.php
+RewriteRule ^cash-based?$ cash.php
+RewriteRule ^obesity?$ obesity.php
+RewriteRule ^micronutrient?$ micro.php
+RewriteRule ^reports?$ reports.php
+RewriteRule ^infant?$ infant.php
+RewriteRule ^school?$ school.php
+RewriteRule ^login?$ login.php
+RewriteRule ^forgot-password?$ auth-forgot-password.php
+RewriteRule ^register?$ register.php
+RewriteRule ^users?$ users.php
+RewriteRule ^account?$ edit_account.php
+RewriteRule ^logout?$ logout.php

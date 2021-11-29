@@ -4,7 +4,7 @@
     require("common.php"); 
      
     // At the top of the page we check to see whether the user is logged in or not 
-    if(empty($_SESSION['user'])) 
+    if(empty($_SESSION['admin'])) 
     { 
         // If they are not, we redirect them to the login page. 
         header("Location: login"); 
@@ -178,7 +178,7 @@
                                 <div class="avatar me-1">
                                     <img src="assets/images/avatar/avatar-s-1.jpg" alt="" srcset="">
                                 </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Lumela, <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?></div>
+                                <div class="d-none d-md-block d-lg-inline-block">Lumela, <?php echo htmlentities($_SESSION['admin']['username'], ENT_QUOTES, 'UTF-8'); ?></div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="register"><i data-feather="user"></i> Register user</a>

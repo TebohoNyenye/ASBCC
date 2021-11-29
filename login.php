@@ -21,7 +21,7 @@
                 password, 
                 salt, 
                 email 
-            FROM users 
+            FROM admin
             WHERE 
                 username = :username 
         "; 
@@ -86,7 +86,7 @@
             // We will check this index on the private members-only page to determine whether 
             // or not the user is logged in.  We can also use it to retrieve 
             // the user's details. 
-            $_SESSION['user'] = $row; 
+            $_SESSION['admin'] = $row; 
              
             // Redirect the user to the private members-only page. 
             header("Location: dashboard"); 
@@ -165,7 +165,7 @@
                                         <label for="checkbox1">Remember me</label>
                                     </div>
                                     <div class="float-end">
-                                      <!-- <a href="auth-register.html">Don't have an account?</a>-->  
+                                      <a href="udashboard/login">user login</a>
                                     </div>
                                 </div>
                                 <div class="clearfix">

@@ -4,7 +4,7 @@
     require("common.php"); 
      
     // At the top of the page we check to see whether the user is logged in or not 
-    if(empty($_SESSION['user'])) 
+    if(empty($_SESSION['admin'])) 
     { 
         // If they are not, we redirect them to the login page. 
         header("Location: login"); 
@@ -27,7 +27,7 @@
         // If the user is changing their E-Mail address, we need to make sure that 
         // the new value does not conflict with a value that is already in the system. 
         // If the user is not changing their E-Mail address this check is not needed. 
-        if($_POST['email'] != $_SESSION['user']['email']) 
+        if($_POST['email'] != $_SESSION['admin']['email']) 
         { 
             // Define our SQL query 
             $query = " 
@@ -85,7 +85,7 @@
         // Initial query parameter values 
         $query_params = array( 
             ':email' => $_POST['email'], 
-            ':user_id' => $_SESSION['user']['id'], 
+            ':user_id' => $_SESSION['admin']['id'], 
         ); 
          
         // If the user is changing their password, then we need parameter values 
@@ -137,7 +137,7 @@
          
         // Now that the user's E-Mail address has changed, the data stored in the $_SESSION 
         // array is stale; we need to update it so that it is accurate.
-        $_SESSION['user']['email'] = $_POST['email']; 
+        $_SESSION['admin']['email'] = $_POST['email']; 
          
         // This redirects the user back to the members-only page after they register 
         header("Location: dashboard"); 
@@ -179,7 +179,7 @@
                                 <div class="form-group position-relative has-icon-left">
                                     <label for="username">Username</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                                        <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlentities($_SESSION['admin']['username'], ENT_QUOTES, 'UTF-8'); ?>" required>
                                         <div class="form-control-icon">
                                             <i data-feather="user"></i>
                                         </div>
@@ -189,7 +189,7 @@
                                 <div class="form-group position-relative has-icon-left">
                                     <label for="username">Email</label>
                                     <div class="position-relative">
-                                        <input type="text" class="form-control" id="email" name="email" value="<?php echo htmlentities($_SESSION['user']['email'], ENT_QUOTES, 'UTF-8'); ?>" required>
+                                        <input type="text" class="form-control" id="email" name="email" value="<?php echo htmlentities($_SESSION['admin']['email'], ENT_QUOTES, 'UTF-8'); ?>" required>
                                         <div class="form-control-icon">
                                             <i data-feather="mail"></i>
                                         </div>
