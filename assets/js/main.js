@@ -1,7 +1,18 @@
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
-const res = localStorage.getItem("length");  
-console.log(res);
+const res  = localStorage.getItem("length");  
+const res1 = localStorage.getItem("length1"); 
+const res2 = localStorage.getItem("length2"); 
+const res3 = localStorage.getItem("length3"); 
+const res4 = localStorage.getItem("length4"); 
+const res5 = localStorage.getItem("length5");
+
+console.log(res1);
+console.log(res2);
+console.log(res3);
+console.log(res4);
+
+
 
 
 !function(e) {
@@ -132,7 +143,48 @@ console.log(res);
 
 function notification(){
 
-
+    (async () => {
+        // create and show the notification
+        const showNotification = () => {
+            // create a new notification
+            const notification = new Notification('ASBCC', {
+                body: 'You have a new notification',
+                icon: './assets/images/logo.png'
+            });
+    
+            // close the notification after 10 seconds
+            setTimeout(() => {
+                notification.close();
+            }, 10 * 1000);
+    
+            // navigate to a URL when clicked
+            notification.addEventListener('click', () => {
+    
+                window.open('http://localhost/asbcc/dashboard.html', '_blank');
+            });
+        }
+    
+        // show an error message
+        const showError = () => {
+            const error = document.querySelector('.error');
+            error.style.display = 'block';
+            error.textContent = 'You blocked the notifications';
+        }
+    
+        // check notification permission
+        let granted = false;
+    
+        if (Notification.permission === 'granted') {
+            granted = true;
+        } else if (Notification.permission !== 'denied') {
+            let permission = await Notification.requestPermission();
+            granted = permission === 'granted' ? true : false;
+        }
+    
+        // show notification or error
+        granted ? showNotification() : showError();
+    
+    })();
 
 
 
@@ -160,64 +212,25 @@ function getsub() {
            localStorage.setItem("length", arr.length);
 
            if(res!=myarray){
-            var str="you have a new entry";
+            var str="you have a new entry for stunting";
             $('#niti').show();
             $('#noti').append('<p class="text-xs">'+str+'</p>');
 
-(async () => {
-                // create and show the notification
-                const showNotification = () => {
-                    // create a new notification
-                    const notification = new Notification('ASBCC', {
-                        body: 'You have a new notification',
-                        icon: './assets/images/logo.png'
-                    });
-            
-                    // close the notification after 10 seconds
-                    setTimeout(() => {
-                        notification.close();
-                    }, 10 * 1000);
-            
-                    // navigate to a URL when clicked
-                    notification.addEventListener('click', () => {
-            
-                        window.open('http://localhost/asbcc/dashboard.html', '_blank');
-                    });
-                }
-            
-                // show an error message
-                const showError = () => {
-                    const error = document.querySelector('.error');
-                    error.style.display = 'block';
-                    error.textContent = 'You blocked the notifications';
-                }
-            
-                // check notification permission
-                let granted = false;
-            
-                if (Notification.permission === 'granted') {
-                    granted = true;
-                } else if (Notification.permission !== 'denied') {
-                    let permission = await Notification.requestPermission();
-                    granted = permission === 'granted' ? true : false;
-                }
-            
-                // show notification or error
-                granted ? showNotification() : showError();
-            
-            })();
+             notification();
 
 
 
            }
            else{
 
-            var str1="no new entries";   
+            var str1="no new entries for stunting";   
             $('#noti').append('<p class="text-xs">'+str1+'</p>');
 
            }
 
          } catch (error) {
+            document.getElementById('tload').style.display='none';
+            console.log("getting data");
             var table = document.getElementById('sub');
             for(var i=0;i<arr.length;i++){
             var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
@@ -247,46 +260,26 @@ function getschool(){
            myarray = numb;
            var dn = document.getElementById('se').innerHTML=myarray+"(s)";
            console.log(myarray); 
-         } catch (error) {
+           localStorage.setItem("length1", arr.length);
+           if(res1!=myarray){
+            var str="you have a new entry for school";
+            $('#niti').show();
+            $('#noti').append('<p class="text-xs">'+str+'</p>');
 
-            var table = document.getElementById('sub2');
+             notification();
 
-            for(var i=0;i<arr.length;i++){
- 
-            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
-            
-            table.innerHTML += row;
-            }
-             
-         }  
-          
-         
-          
-       }};
-    xhr.send();
-    
-}
 
-function getschool(){
-    var array;
-    var url = "assets/js/getschool.php";
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.onreadystatechange = function () {
-       if (xhr.readyState === 4) {
-          console.log(xhr.status);
-          
-		 try {
-            var data= JSON.parse(xhr.responseText);
-            var arr = Object.values(data);
-            console.log(arr);
+
+           }
+           else{
+
+            var str1="no new entries for school";   
+            $('#noti').append('<p class="text-xs">'+str1+'</p>');
+
+           }
            
-           var numb = arr.length;
-           myarray = numb;
-           var dn = document.getElementById('se').innerHTML=myarray+"(s)";
-           console.log(myarray); 
          } catch (error) {
-
+            document.getElementById('tload4').style.visibility='hidden';
             var table = document.getElementById('sub2');
 
             for(var i=0;i<arr.length;i++){
@@ -294,12 +287,9 @@ function getschool(){
             var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
             
             table.innerHTML += row;
-            }
-             
+            }    
          }  
-          
-         
-          
+                 
        }};
     xhr.send();
     
@@ -328,8 +318,26 @@ function getmicro(){
            myarray = numb;
            var dn = document.getElementById('me').innerHTML=myarray+"(s)";
            console.log(myarray); 
-         } catch (error) {
+           localStorage.setItem("length2",arr.length); 
+           if(res2!=myarray){
+            var str="you have a new entry for micronutrient";
+            $('#niti').show();
+            $('#noti').append('<p class="text-xs">'+str+'</p>');
 
+             notification();
+
+
+
+           }
+           else{
+
+            var str1="no new entries for micronutrient";   
+            $('#noti').append('<p class="text-xs">'+str1+'</p>');
+
+           }
+         } catch (error) {
+            document.getElementById('tload3').style.display='none';
+            console.log("getting data");
             var table = document.getElementById('sub3');
 
             for(var i=0;i<arr.length;i++){
@@ -371,8 +379,26 @@ function getcash(){
            myarray = numb;
            var dn = document.getElementById('metad').innerHTML=myarray+"(s)";
            console.log(myarray); 
-         } catch (error) {
+           localStorage.setItem("length3", arr.length); 
+           if(res3!=myarray){
+            var str="you have a new entry for cashed based";
+            $('#niti').show();
+            $('#noti').append('<p class="text-xs">'+str+'</p>');
 
+             notification();
+
+
+
+           }
+           else{
+
+            var str1="no new entries for cashed based";   
+            $('#noti').append('<p class="text-xs">'+str1+'</p>');
+
+           }
+         } catch (error) {
+            document.getElementById('tload1').style.display='none';
+            console.log("getting data");
             var table = document.getElementById('sub1');
 
             for(var i=0;i<arr.length;i++){
@@ -398,6 +424,7 @@ function getobesity(){
     var url = "assets/js/getobesity.php";
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
+    var hiDE;
     
 
   
@@ -415,16 +442,36 @@ function getobesity(){
            myarray = numb;
            var dn = document.getElementById('met').innerHTML=myarray+"(s)";
            console.log(myarray); 
-         } catch (error) {
+           localStorage.setItem("length4", arr.length); 
+           if(res4!=myarray){
+            var str="you have a new entry  for obesity";
+            $('#niti').show();
+            $('#noti').append('<p class="text-xs">'+str+'</p>');
 
+             notification();
+
+
+
+           }
+           else{
+
+            var str1="no new entries for obesity";   
+            $('#noti').append('<p class="text-xs">'+str1+'</p>');
+
+           }
+
+         } catch (error) {
+            document.getElementById('tload5').style.display='none';
+            console.log("getting data");
             var table = document.getElementById('sub5');
 
             for(var i=0;i<arr.length;i++){
  
             var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
-            
+    
             table.innerHTML += row;
             }
+           
              
          }  
           
@@ -459,8 +506,26 @@ function getinfant(){
            myarray = numb;
            var dn = document.getElementById('inf').innerHTML=myarray+"(s)";
            console.log(myarray); 
-         } catch (error) {
+            localStorage.setItem("length5", arr.length); 
+            if(res5!=myarray){
+            var str="you have a new entry for YCYF";
+            $('#niti').show();
+            $('#noti').append('<p class="text-xs">'+str+'</p>');
 
+             notification();
+
+
+
+           }
+           else{
+
+            var str1="no new entries for ICYF";   
+            $('#noti').append('<p class="text-xs">'+str1+'</p>');
+
+           }
+         } catch (error) {
+            document.getElementById('tload2').style.display='none';
+            console.log("getting data");
             var table = document.getElementById('sub4');
 
             for(var i=0;i<arr.length;i++){

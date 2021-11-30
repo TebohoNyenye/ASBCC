@@ -195,7 +195,7 @@
                 <div class="page-title">
                     <div class="row">
                         <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Micronutrient defeciencies</h3>
+                            <h3>Micronutrient deficiencies</h3>
                             <p class="text-subtitle text-muted">We use 'simple-datatables
                                  <a
                                     href="#">here</a>.</p>
@@ -214,7 +214,7 @@
                 <section class="section">
                     <div class="card">
                         <div class="card-header">
-                            Micronutrient defeciencies Datatable<br>
+                            Micronutrient deficiencies Datatable<br>
                             <button class="btn btn-primary" onclick="download2()">download excel</button>
                         </div>
                         <div class="card-body">
@@ -236,6 +236,10 @@
                                     
                                 </tbody>
                             </table>
+                            <div class="text-center" id="tload3">
+                                        <img src="assets/images/loading.gif" style="width:50px; "> 
+                                          <p style="color:white;">loading</p>
+                                        </div> 
                         </div>
                     </div>
 

@@ -234,6 +234,11 @@
                                     
                                 </tbody>
                             </table>
+                            
+                                   <div class="text-center" id="tload5">
+                                        <img id="tload5" src="assets/images/loading.gif" style="width:50px; "> 
+                                          <p style="color:white;">loading</p>
+                                        </div> 
                         </div>
                     </div>
 
@@ -264,8 +269,9 @@
     <script src="assets/js/pages/dashboard.js"></script>
     <script src="assets/vendors/chartjs/Chart.min.js"></script>
     <script src="assets/vendors/apexcharts/apexcharts.min.js"></script>
-    <script src="assets/js/main.js"></script>
     <script src="assets/js/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/main.js"></script>
+ 
 
     <script>
     

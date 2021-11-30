@@ -165,7 +165,7 @@
                                         <label for="checkbox1">Remember me</label>
                                     </div>
                                     <div class="float-end">
-                                      <a href="udashboard/login">user login</a>
+                                      <a href="udashboard/login">User login<i data-feather="arrow-right-circle"></i></a>
                                     </div>
                                 </div>
                                 <div class="clearfix">

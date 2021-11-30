@@ -218,6 +218,7 @@ function getsub() {
            }
 
          } catch (error) {
+            document.getElementById('tload').style.display='none';
             var table = document.getElementById('sub');
             for(var i=0;i<arr.length;i++){
             var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
@@ -248,45 +249,7 @@ function getschool(){
            var dn = document.getElementById('se').innerHTML=myarray+"(s)";
            console.log(myarray); 
          } catch (error) {
-
-            var table = document.getElementById('sub2');
-
-            for(var i=0;i<arr.length;i++){
- 
-            var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
-            
-            table.innerHTML += row;
-            }
-             
-         }  
-          
-         
-          
-       }};
-    xhr.send();
-    
-}
-
-function getschool(){
-    var array;
-    var url = "assets/js/getschool.php";
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.onreadystatechange = function () {
-       if (xhr.readyState === 4) {
-          console.log(xhr.status);
-          
-		 try {
-            var data= JSON.parse(xhr.responseText);
-            var arr = Object.values(data);
-            console.log(arr);
-           
-           var numb = arr.length;
-           myarray = numb;
-           var dn = document.getElementById('se').innerHTML=myarray+"(s)";
-           console.log(myarray); 
-         } catch (error) {
-
+            document.getElementById('tload6').style.display='none';
             var table = document.getElementById('sub2');
 
             for(var i=0;i<arr.length;i++){
@@ -329,7 +292,7 @@ function getmicro(){
            var dn = document.getElementById('me').innerHTML=myarray+"(s)";
            console.log(myarray); 
          } catch (error) {
-
+            document.getElementById('tload4').style.display='none';
             var table = document.getElementById('sub3');
 
             for(var i=0;i<arr.length;i++){
@@ -372,7 +335,7 @@ function getcash(){
            var dn = document.getElementById('metad').innerHTML=myarray+"(s)";
            console.log(myarray); 
          } catch (error) {
-
+            document.getElementById('tload3').style.display='none';
             var table = document.getElementById('sub1');
 
             for(var i=0;i<arr.length;i++){
@@ -416,7 +379,7 @@ function getobesity(){
            var dn = document.getElementById('met').innerHTML=myarray+"(s)";
            console.log(myarray); 
          } catch (error) {
-
+            document.getElementById('tload1').style.display='none';
             var table = document.getElementById('sub5');
 
             for(var i=0;i<arr.length;i++){
@@ -460,7 +423,7 @@ function getinfant(){
            var dn = document.getElementById('inf').innerHTML=myarray+"(s)";
            console.log(myarray); 
          } catch (error) {
-
+            document.getElementById('tload5').style.display='none';
             var table = document.getElementById('sub4');
 
             for(var i=0;i<arr.length;i++){

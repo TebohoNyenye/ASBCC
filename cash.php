@@ -234,6 +234,10 @@
                                     
                                 </tbody>
                             </table>
+                            <div class="text-center" id="tload1">
+                                        <img src="assets/images/loading.gif" style="width:50px; "> 
+                                          <p style="color:white;">loading</p>
+                                        </div> 
                         </div>
                     </div>
 

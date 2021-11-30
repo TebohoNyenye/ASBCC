@@ -228,8 +228,10 @@
                                         <th>submitted by</th>
                                         <th>start time</th>
                                         <th>End time</th>
+                                        
                                     </tr>
                                 </thead>
+                               
                                 <tbody id="sub">
                                  
 
@@ -238,6 +240,10 @@
                                     
                                 </tbody>
                             </table>
+                            <div class="text-center" id="tload">
+                                        <img src="assets/images/loading.gif" style="width:50px; "> 
+                                          <p style="color:white;">loading</p>
+                                        </div> 
                         </div>
                     </div>
 
