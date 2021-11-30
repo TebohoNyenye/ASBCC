@@ -4,7 +4,7 @@
     require("common.php"); 
      
     // At the top of the page we check to see whether the user is logged in or not 
-    if(empty($_SESSION['user'])) 
+    if(empty($_SESSION['admin'])) 
     { 
         // If they are not, we redirect them to the login page. 
         header("Location: login"); 
@@ -233,7 +233,7 @@
                         <div class="card-body">
                             <div class="text-center mb-5">
                                 <img src="assets/images/logo.png" height="48" class='mb-4'>
-                                <h3>Sign In</h3>
+                                <h3>User Registration</h3>
                                 <p>Please register user to ASBCC.</p>
                             </div>
                             <form action="register.php" method="post"> 
@@ -261,7 +261,7 @@
                                     <div class="clearfix">
                                         <label for="password">Password</label>
                                         <a href="forgot-password" class='float-end'>
-                                            <small>Forgot password?</small>
+                                           
                                         </a>
                                     </div>
                                     <div class="position-relative">
@@ -272,32 +272,14 @@
                                     </div>
                                 </div>
 
-                                <div class='form-check clearfix my-4'>
-                                    <div class="checkbox float-start">
-                                        <input type="checkbox" id="checkbox1" class='form-check-input'>
-                                        <label for="checkbox1">Remember me</label>
-                                    </div>
-                                    <div class="float-end">
-                                      <!-- <a href="auth-register.html">Don't have an account?</a> -->  
-                                    </div>
-                                </div>
+                              
                                 <div class="clearfix">
                                     <button class="btn btn-primary float-end" value="Register" >Submit</button>
                                 </div>
                             </form>
                             <div class="divider">
-                                <div class="divider-text">OR</div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <button class="btn btn-block mb-2 btn-primary"><i data-feather="facebook"></i>
-                                        Facebook</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <button class="btn btn-block mb-2 btn-secondary"><i data-feather="github"></i>
-                                        Github</button>
-                                </div>
-                            </div>
+                             
+                            
                         </div>
                     </div>
                 </div>
