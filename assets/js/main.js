@@ -128,9 +128,14 @@ console.log(res4);
         getinfant();
         getcash();
         getobesity();
-       
+  
         $('#niti').hide();
-   
+        var date = dayjs().toDate();
+        console.log(date);
+        console.log(dayjs().endOf('month').date());
+        console.log(dayjs().startOf('month').date());
+
+    $('#ge').append('<p class="text-subtitle text-muted">'+date+'</p>');
     
     }
     ,
@@ -231,11 +236,15 @@ function getsub() {
          } catch (error) {
             document.getElementById('tload').style.display='none';
             console.log("getting data");
+           
             var table = document.getElementById('sub');
             for(var i=0;i<arr.length;i++){
             var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
             table.innerHTML += row;
             }
+
+            var table1 = document.querySelector('#table1');
+            var dataTable = new simpleDatatables.DataTable(table1);
          }   
        }};
     xhr.send();
@@ -287,7 +296,10 @@ function getschool(){
             var row = '<tr>       <td>' +arr[i].District + '</td>  <td>'+arr[i]._submission_time +'<td>' +arr[i]._submitted_by+' </td> <td>'+arr[i].start+ '</td><td>'+arr[i].end+'</td></tr>'
             
             table.innerHTML += row;
-            }    
+            }
+            
+            var table1 = document.querySelector('#table1');
+            var dataTable = new simpleDatatables.DataTable(table1);
          }  
                  
        }};
@@ -346,7 +358,9 @@ function getmicro(){
             
             table.innerHTML += row;
             }
-             
+
+              var table1 = document.querySelector('#table1');
+            var dataTable = new simpleDatatables.DataTable(table1);
          }  
           
          
@@ -407,6 +421,9 @@ function getcash(){
             
             table.innerHTML += row;
             }
+
+            var table1 = document.querySelector('#table1');
+            var dataTable = new simpleDatatables.DataTable(table1);
              
          }  
           
@@ -472,7 +489,8 @@ function getobesity(){
             table.innerHTML += row;
             }
            
-             
+            var table1 = document.querySelector('#table1');
+            var dataTable = new simpleDatatables.DataTable(table1);
          }  
           
          
@@ -535,7 +553,8 @@ function getinfant(){
             table.innerHTML += row;
             }
              
-
+            var table1 = document.querySelector('#table1');
+            var dataTable = new simpleDatatables.DataTable(table1);
          }  
           
          

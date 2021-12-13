@@ -173,17 +173,9 @@
                                 </div>
                             </form>
                             <div class="divider">
-                                <div class="divider-text">OR</div>
+                              
                             </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <button class="btn btn-block mb-2 btn-primary"><i data-feather="facebook"></i>
-                                        Facebook</button>
-                                </div>
-                                <div class="col-sm-6">
-                                    <button class="btn btn-block mb-2 btn-secondary"><i data-feather="github"></i>
-                                        Github</button>
-                                </div>
+                          
                             </div>
                         </div>
                     </div>

@@ -4,7 +4,8 @@
     $username = "root"; 
     $password = ""; 
     $host = "localhost"; 
-    $dbname = "database"; 
+    $dbname = "asbcc"; 
+    $port ="3306";
 
     // UTF-8 is a character encoding scheme that allows you to conveniently store 
     // a wide varienty of special characters, like ¢ or €, in your database. 
@@ -25,7 +26,7 @@
         // PDO is designed to provide a flexible interface between PHP and many 
         // different types of database servers.  For more information on PDO: 
         // http://us2.php.net/manual/en/class.pdo.php 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options); 
+        $db = new PDO("mysql:host={$host};port={$port};dbname={$dbname};charset=utf8", $username, $password, $options); 
     } 
     catch(PDOException $ex) 
     { 

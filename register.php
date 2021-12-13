@@ -97,7 +97,9 @@
         // the database already and we should not allow the user to continue. 
         if($row) 
         { 
-            die("This username is already in use"); 
+            //die("This username is already in use"); 
+             print("<div class='alert alert-danger'> <strong>Username already in use!</strong> Try agaian</div>"); 
+                header("Location: register"); 
         } 
          
         // Now we perform the same type of check for the email address, in order 
@@ -129,13 +131,15 @@
         if($row) 
         { 
             die("This email address is already registered"); 
+             print("<div class='alert alert-danger'> <strong>Try again!</strong> Login failed</div>"); 
+            // header("Location: register"); 
         } 
          
         // An INSERT query is used to add new rows to a database table.
         // Again, we are using special tokens (technically called parameters) to 
         // protect against SQL injection attacks. 
         $query = " 
-            INSERT INTO admin( 
+            INSERT INTO users( 
                 username, 
                 password, 
                 salt, 
@@ -196,6 +200,7 @@
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
             die("Failed to run query: " . $ex->getMessage()); 
+            
         } 
          
         // This redirects the user back to the login page after they register 
@@ -236,7 +241,7 @@
                                 <h3>User Registration</h3>
                                 <p>Please register user to ASBCC.</p>
                             </div>
-                            <form action="register.php" method="post"> 
+                            <form action="register" method="post"> 
                                 <div class="form-group position-relative has-icon-left">
                                     <label for="username">Username</label>
                                     <div class="position-relative">
